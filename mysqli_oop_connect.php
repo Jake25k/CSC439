@@ -20,3 +20,5 @@ if ($mysqli->connect_error) {
 } else { // Establish the encoding.
 	$mysqli->set_charset('utf8');
 }
+
+?>
