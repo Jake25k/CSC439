@@ -1,13 +1,10 @@
-# Team: Team
-# Team Members: Josh McGuire, Reed Inderwiesche, Zack Sprague, Chris Wells, Jacob Moore, James Craig
-# Books-bootstrap-website
-# In this project, we are creating complete books website with database.
+Team: Team<br>
+Team Members: Josh McGuire, Reed Inderwiesche, Zack Sprague, Chris Wells, Jacob Moore, James Craig<br>
+Books-bootstrap-website<br>
+Project Description: Create and maintain a working book website with database for the books.<br>
 
-# Top Open this website just go to src and open Index.html file.
-# That's it.
-# Enjoy...!
-
-# We are making this website a working website.  
-# We are adding a database to the site that allows us to place books into the database.  
-# We are also adding additional pages to the website so that the website is more navigable.  
-# We are enhancing a page for the user when they select a book from the database.
+Enhancements:<br>
+  a.	Add a database to the website<br>
+  b.	make the site more navigable by adding more pages<br>
+  c.	make the navigation bar work<br>
+  d.	add a page that allows the user to view the book that they have selected.<br>
