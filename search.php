@@ -54,7 +54,7 @@ if (!$conn) {
   exit;
 }
     
-if (!empty($_POST['term'])) {
+//if (!empty($_POST['term'])) {
     $term = $_POST['term'];  
     
     $query = pg_query($conn, "SELECT * FROM books WHERE title LIKE '%term%'");
@@ -75,6 +75,6 @@ if (!empty($_POST['term'])) {
         }
         echo "</table>";
     }
-}
+//}
 ?>
 </body>
