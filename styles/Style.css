@@ -48,6 +48,11 @@ header a {
   display: block;
 }
 
+.search {
+    font-family: var(--Sniglet-font);
+    width: 250px;
+}
+
 header .nav-item:last-child {
   padding-right: 10.5em;
 }
@@ -57,7 +62,8 @@ header .nav-item {
 }
 
 header .navbar-brand {
-  padding-left: 8rem;
+    padding-left: 8rem;
+    padding-right: 4rem;
 }
 
 header .nav-link:hover {
