@@ -27,7 +27,6 @@
 <body>
 
 <header>
-<h1>All Books</h1>
     <div class="container-fluid p-0">
       <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">
@@ -58,7 +57,7 @@
       </nav>
     </div>
 </header>
-
+<h1>All Books</h1>
 <main>
 <?php
 
