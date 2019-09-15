@@ -39,18 +39,18 @@
           <div class="mr-auto"></div>
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">HOME
+              <a class="nav-link" href="Index.html">HOME
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href='books.php'>BOOK INVENTORY</a>
+              <a class="nav-link" href="books.php">BOOK INVENTORY</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href='users.php'>USERS</a>
+              <a class="nav-link" href="users.php">USERS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">ABOUT</a>
+              <a class="nav-link" href="about.html">ABOUT</a>
             </li>
           </ul>
         </div>
