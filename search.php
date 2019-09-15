@@ -66,7 +66,7 @@ if (!empty($_POST['term'])) {
     else {
         echo "<table>";
         echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
-        while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
+        while($results = pg_fetch_array($query, NULL, PGSQL_BOTH)){
             echo "<tr>";
             echo "<td>" . $results['title'] . "</td>";
             echo "<td>" . $results['author'] . "</td>";
