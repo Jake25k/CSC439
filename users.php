@@ -68,3 +68,4 @@ while ($row = pg_fetch_row($result)) {
 
 ?>
 </body>
+</html>
