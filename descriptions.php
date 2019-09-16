@@ -68,7 +68,7 @@ db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 db
 
 $query = pg_query($db_con, "SELECT * from books");
 
-<h1> echo "<td>" . $results['title'] . "</td>";</h1>
+<h1> echo  $results['title']</h1>
 
 <main>
 <?php
