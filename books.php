@@ -78,6 +78,11 @@ if(!$query){
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
     echo "<td>" . $results['title'] . "</td>";
+	?>
+	<a class="nav-link" href="description.php">Description
+	<span class="sr-only">(current)</span>
+	</a>
+	<?php
     echo "<td>" . $results['author'] . "</td>";
     echo "<td>" . $results['isbn'] . "</td>";
     echo "</tr>";
