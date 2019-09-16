@@ -84,16 +84,18 @@ if(!$query){
     echo "<td>" . $results['isbn'] . "</td>";
     echo "</tr>";
   }
-  <p>
-   Price
-   $29.77";
   
+?>
+   <h4>Price</h4>
+   <li>$29.77</li>
+  
+  <p> 
   Description:
   The theory of everything is a proposed notion in the scientific community which states that there is 
   one all-encompassing theory that proposes a framework of understanding of all of physics, 
   combining the quantum mechanics and classical physics into a unified approach which explains the laws of the universe.
   </p>
-?>
+	
 </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
