@@ -86,7 +86,7 @@ if(!$query){
 }
 
 ?>
-	<a class="nav-link" href="description.php">Description
+	<a class="nav-link" href="descriptions.php">Description
 	<span class="sr-only">(current)</span>
 	</a>
 </main>
