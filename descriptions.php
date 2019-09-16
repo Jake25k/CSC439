@@ -63,18 +63,11 @@
       </nav>
     </div>
 </header>
-<?php
-
-db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
-$query = pg_query($db_con, "SELECT * from books");
-	
-?>
-	
-<h1> echo  $results['title']</h1>
-
+<h1>All Books</h1>
 <main>
 <?php
-
+$db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
+$query = pg_query($db_con, "SELECT * from books");
 if(!$query){
   echo "Query error";
 }else{
@@ -82,20 +75,15 @@ if(!$query){
   echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
+    echo "<td>" . $results['title'] . "</td>";
     echo "<td>" . $results['author'] . "</td>";
     echo "<td>" . $results['isbn'] . "</td>";
     echo "</tr>";
   }
-  
+  echo "</table>";
+}
 ?>
-<h3>Price: </h2>
-<p>20.99</p>
-<h3>Description: </h3>
- <p> The theory of everything is a proposed notion in the scientific community which states that there is 
-  one all-encompassing theory that proposes a framework of understanding of all of physics, 
-  combining the quantum mechanics and classical physics into a unified approach which explains the laws of the universe.
- </p>
-	
+	<p><a href="descriptions.php">Description</a></p>
 </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
