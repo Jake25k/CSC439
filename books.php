@@ -86,9 +86,7 @@ if(!$query){
 }
 
 ?>
-	<a class="nav-link" href="descriptions.php">Description
-	<span class="sr-only">(current)</span>
-	</a>
+	<p><a href=descriptions.php>Description</a></p>
 </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
