@@ -54,10 +54,10 @@ if (!$conn) {
   exit;
 }
     
-//if (!empty($_POST['term'])) {
+if (!empty($_POST['term'])) {
     $term = $_POST['term'];  
     
-    $query = pg_query($conn, "SELECT * FROM books WHERE title LIKE '%term%'");
+    $query = pg_query($conn, "SELECT * FROM books WHERE title LIKE '%$term%'");
     
     if (!$query) {
         echo "An error with the query occurred.\n";
@@ -75,6 +75,9 @@ if (!$conn) {
         }
         echo "</table>";
     }
-//}
+}
+else {
+    echo "You didn't search for anything!";
+}
 ?>
 </body>
