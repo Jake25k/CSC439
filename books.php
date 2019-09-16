@@ -35,6 +35,12 @@
           aria-label="Toggle navigation">
           <i class="fas fa-align-right text-light"></i>
         </button>
+        <div class="search">
+          <form action="search.php" method="post"> 
+              <input type="text" name="term" />
+              <input type="submit" value="Search" /> 
+          </form> 
+        </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mr-auto"></div>
           <ul class="navbar-nav">
