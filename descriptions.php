@@ -84,14 +84,15 @@ if(!$query){
     echo "<td>" . $results['isbn'] . "</td>";
     echo "</tr>";
   }
-  <p  echo "Price";
-  echo "$29.77";
+  <p>
+   Price
+   $29.77";
   
-  echo "Description";
-  echo " The theory of everything is a proposed notion in the scientific community which states that there is 
+  Description:
+  The theory of everything is a proposed notion in the scientific community which states that there is 
   one all-encompassing theory that proposes a framework of understanding of all of physics, 
-  combining the quantum mechanics and classical physics into a unified approach which explains the laws of the universe."
-  /p>
+  combining the quantum mechanics and classical physics into a unified approach which explains the laws of the universe.
+  </p>
 ?>
 </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
