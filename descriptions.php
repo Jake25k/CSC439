@@ -84,9 +84,9 @@ if(!$query){
     echo "<td>" . $results['isbn'] . "</td>";
     echo "</tr>";
   }
-  echo "Price";
+  <li  echo "Price";
   echo "$29.77";
-  
+  /li>
   echo "Description";
   echo " The theory of everything is a proposed notion in the scientific community which states that there is 
   one all-encompassing theory that proposes a framework of understanding of all of physics, 
