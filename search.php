@@ -71,7 +71,7 @@ if (!empty($_POST['term'])) {
         exit;
     }
     else {
-        echo "<table id="book_table" class="table" width="100%" cellspacing="0">";
+        echo "<table>";
         echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
         while($results = pg_fetch_array($query, NULL, PGSQL_BOTH)){
             echo "<tr>";
