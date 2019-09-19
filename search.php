@@ -71,15 +71,23 @@ if (!empty($_POST['term'])) {
         exit;
     }
     else {
-        echo "<table>";
-        echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
-        while($results = pg_fetch_array($query, NULL, PGSQL_BOTH)){
-            echo "<tr>";
-            echo "<td>" . $results['title'] . "</td>";
-            echo "<td>" . $results['author'] . "</td>";
-            echo "<td>" . $results['isbn'] . "</td>";
-            echo "</tr>";
-        }
+        <table id="book_table" class="table" width="100%" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>ISBN</th>
+				</tr>
+			</thead>
+		<tbody>
+			while($results = pg_fetch_array($query, NULL, PGSQL_BOTH)){
+				echo "<tr>";
+				echo "<td>" . $results['title'] . "</td>";
+				echo "<td>" . $results['author'] . "</td>";
+				echo "<td>" . $results['isbn'] . "</td>";
+				echo "</tr>";
+			}
+		</tbody>
         echo "</table>";
     }
 }
