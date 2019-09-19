@@ -64,7 +64,7 @@ if (!$conn) {
 if (!empty($_POST['term'])) {
     $term = $_POST['term'];  
     
-    $query = pg_query($conn, "SELECT * FROM books WHERE title LIKE '%$term%'");
+    $query = pg_query($conn, "SELECT * FROM books WHERE title SIMILAR '%$term%'");
     
     if (!$query) {
         echo "An error with the query occurred.\n";
