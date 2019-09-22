@@ -83,7 +83,7 @@ if(!$query){
     echo "</tr>";
   }
   echo "</table>"; */
-	<div class="table bordered table-responsive text-center">
+	<div class="table-responsive">
 		<table class = "table">
 			<thead>
 				<tr>
