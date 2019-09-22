@@ -61,7 +61,7 @@
 			<li><b>Username:</b></li><li><input type="text" name="uname" /></li>
 			<li><b>Password:</b></li><li><input type="password" name="pass" /></li>
 			<li><b>Confirm Password:</b></li><li><input type="password" name="confirmPass" /></li>
-			<li>Already have account<a href="users.php">click here</a></li>
+			<li>Already have account<a href="users.php"> click here</a></li>
 			<li><input type="submit" /></li>
 			
 		</ul>		
