@@ -84,6 +84,7 @@ if(!$query){
     echo "</tr>";
   }
   echo "</table>";
+  echo "</div>";
 /* 	<div class="table-responsive">
 		<table class = "table">
 			<thead>
