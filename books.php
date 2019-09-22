@@ -73,7 +73,7 @@ $query = pg_query($db_con, "SELECT * from books");
 if(!$query){
   echo "Query error";
 }else{
-/*   echo "<table>";
+/ echo "<table>";
   echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
@@ -82,8 +82,8 @@ if(!$query){
     echo "<td>" . $results['isbn'] . "</td>";
     echo "</tr>";
   }
-  echo "</table>"; */
-	<div class="table-responsive">
+  echo "</table>";
+/* 	<div class="table-responsive">
 		<table class = "table">
 			<thead>
 				<tr>
@@ -103,7 +103,7 @@ if(!$query){
 			</tbody>
 		</table>
 	</div>
-}	
+}	 */
 
 ?>
 	<p><a href="descriptions.php">Description</a></p>
