@@ -331,7 +331,7 @@ header .container .col-md-7 p {
   width: 60%;
 }
 
-input[type=text], input[type=password] {
+.login input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -341,7 +341,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+.login button {
   background-color: yellow;
   color: white;
   padding: 14px 20px;
