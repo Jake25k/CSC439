@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Books</title>
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
   <link rel="stylesheet" href="styles/Style.css" />
-  <link rel="stylesheet" href="styles/mobile-style.css">
+  <style>
+    header{
+      padding-left: 5px;
+      background: var(--bggradient);
+      width: 100%;
+    }
+    table{
+      margin: 10px;
+      padding: 5px;
+    }
+    td{
+      padding-right: 15px;
+    }
+  </style>
 </head>
 
+
 <body>
-  <header>
+
+<header>
     <div class="container-fluid p-0">
       <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="Index.html">
@@ -37,12 +48,12 @@
               <a class="nav-link" href="Index.html">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="books.php">BOOK INVENTORY</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="users.php">USERS
+              <a class="nav-link" href="books.php">BOOK INVENTORY
 				<span class="sr-only">(current)</span>
 			  </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="users.php">USERS</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">ABOUT</a>
@@ -55,19 +66,11 @@
       </nav>
     </div>
 </header>
-
-<?php
-
-db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
-$query = pg_query($db_con, "SELECT * from books");
-	
-?>
-	
-<h1> echo  $results['title']</h1>
-
+<h1>All Books</h1>
 <main>
 <?php
-
+$db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
+$query = pg_query($db_con, "SELECT * from books");
 if(!$query){
   echo "Query error";
 }else{
@@ -75,20 +78,15 @@ if(!$query){
   echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
+    echo "<td>" . $results['title'] . "</td>";
     echo "<td>" . $results['author'] . "</td>";
     echo "<td>" . $results['isbn'] . "</td>";
     echo "</tr>";
   }
-  
+  echo "</table>";
+}	
 ?>
-<h3>Price: </h2>
-<p>20.99</p>
-<h3>Description: </h3>
- <p> The theory of everything is a proposed notion in the scientific community which states that there is 
-  one all-encompassing theory that proposes a framework of understanding of all of physics, 
-  combining the quantum mechanics and classical physics into a unified approach which explains the laws of the universe.
- </p>
-	
+	<p><a href="descriptions.php">Description</a></p>
 </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -98,4 +96,3 @@ if(!$query){
   <script src="js/main.js"></script>
 </body>
 </html>
-
