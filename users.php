@@ -53,17 +53,18 @@
     </div>
 </header>
 
-<!-- User login -->
-	<div class="login">
-		<form action="users.php" method ="post">
-			<label for="uname"><b>Username</b></label>
-			<input type="text" placeholder="Username" name="uname" required>
+<!-- User login and new user-->
+	<div class="newUser">
+		<h2>Create New User</h2>
+		<ul>
+		<form name="creds" action="users.php" method ="POST">
 		
-			<label for="pass"><b>Password</b></label>
-			<input type="password" placeholder="Password" name="pass" required>
-		
-			<button type="submit">Login</button>
+			<li><b>Username:</b></li><li><input type="text" placeholder="Username" name="uname" /></li>
+			<li><b>Password:</b></li><li><input type="password" placeholder="Password" name="pass" /></li>		
+			<li><input type="submit" /></li>
+			
 		</form>
+		</ul>
 	</div>
 
 <?php
@@ -73,8 +74,8 @@ if (!$conn) {
   echo "An error occurred.\n";
   exit;
 }
-
-/*$result = pg_query($conn, "SELECT firstName FROM users");
+/*
+$result = pg_query($conn, "SELECT * FROM users WHERE firstName = '$_POST[uname]' AND password = '$_POST[pass]'");
 if (!$result) {
   echo "An error occurred.\n";
   exit;
