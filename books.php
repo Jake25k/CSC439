@@ -77,7 +77,7 @@ if(!$query){
   echo "Query error";
 }else{
 
-  echo "<table class="table table-bordered">";
+  echo "<table>";
   echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
