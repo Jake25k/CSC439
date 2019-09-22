@@ -54,19 +54,18 @@
 </header>
 
 <!-- User login and new user-->
+<form name="creds" action="users.php" method ="POST">
 	<div class="newUser">
 		<h2>Create New User</h2>
 		<ul>
-		<form name="creds" action="users.php" method ="POST">
-		
+				
 			<li><b>Username:</b></li><li><input type="text" placeholder="Username" name="uname" /></li>
 			<li><b>Password:</b></li><li><input type="password" placeholder="Password" name="pass" /></li>		
 			<li><input type="submit" /></li>
 			
-		</form>
-		</ul>
+		</ul>		
 	</div>
-
+</form>
 <?php
 // Connect to the database
 $conn = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
