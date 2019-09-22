@@ -54,7 +54,6 @@
 </header>
 
 <!-- User login and new user-->
-<form name="creds" action="users.php" method ="POST">
 	<div class="newUser">
 		<h2>Create New User</h2>
 		<ul style="list-style-type:none;">
@@ -66,7 +65,7 @@
 			
 		</ul>		
 	</div>
-</form>
+
 <?php
 // Connect to the database
 $conn = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
