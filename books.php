@@ -104,7 +104,7 @@ if(!$query){
 				}
 			</tbody>
 		</table>
-	</div>
+	</div> */
 }	
 
 ?>
