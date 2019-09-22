@@ -363,11 +363,11 @@ header .container .col-md-7 p {
 	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
-	background: #4CAF50;
+	background: #EA355B;
 	width: 100%;
 	border: 0;
 	padding: 15px;
-	color: #EA355B;
+	color: white;
 	font-size: 14px;
 	cursor: pointer;
 }
