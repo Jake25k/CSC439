@@ -57,10 +57,9 @@
 <form name="creds" action="users.php" method ="POST">
 	<div class="newUser">
 		<h2>Create New User</h2>
-		<ul>
-				
-			<li><b>Username:</b></li><li><input type="text" placeholder="Username" name="uname" /></li>
-			<li><b>Password:</b></li><li><input type="password" placeholder="Password" name="pass" /></li>		
+		<ul style="list-style-type:none;">
+			<li><b>Username:</b></li><li><input type="text" placeholder="Username" name="uname" /><br></li>
+			<li><b>Password:</b></li><li><input type="password" placeholder="Password" name="pass" /><br></li>		
 			<li><input type="submit" /></li>
 			
 		</ul>		
