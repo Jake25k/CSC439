@@ -58,8 +58,9 @@
 	<div class="newUser">
 		<h2>Create New User</h2>
 		<ul style="list-style-type:none;">
-			<li><b>Username:</b></li><li><input type="text" placeholder="Username" name="uname" /><br></li>
-			<li><b>Password:</b></li><li><input type="password" placeholder="Password" name="pass" /><br></li>		
+			<li><b>Username:</b></li><li><input type="text" name="uname" /></li>
+			<li><b>Password:</b></li><li><input type="password" name="pass" /></li>
+			<li><b>Confirm Password:</b></li><li><input type="password" name="pass" /></li>				
 			<li><input type="submit" /></li>
 			
 		</ul>		
@@ -72,8 +73,12 @@ if (!$conn) {
   echo "An error occurred.\n";
   exit;
 }
-/*
-$result = pg_query($conn, "SELECT * FROM users WHERE firstName = '$_POST[uname]' AND password = '$_POST[pass]'");
+
+// Insert user into database
+// $q = "INSERT INTO user VALUES ('$_POST[uname]','$_POST[pass]')";
+// $r = pg_query($q);
+
+$result = pg_query($conn, "SELECT firstName FROM users");
 if (!$result) {
   echo "An error occurred.\n";
   exit;
@@ -82,7 +87,7 @@ if (!$result) {
 while ($row = pg_fetch_row($result)) {
   echo "First name: $row[0]";
   echo "<br />\n";
-}*/
+}
 
 ?>
 
