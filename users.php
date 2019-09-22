@@ -60,7 +60,7 @@
 		<ul style="list-style-type:none;">
 			<li><b>Username:</b></li><li><input type="text" name="uname" /></li>
 			<li><b>Password:</b></li><li><input type="password" name="pass" /></li>
-			<li><b>Confirm Password:</b></li><li><input type="password" name="pass" /></li>				
+			<li><b>Confirm Password:</b></li><li><input type="password" name="confirmPass" /></li>				
 			<li><input type="submit" /></li>
 			
 		</ul>		
