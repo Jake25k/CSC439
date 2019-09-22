@@ -102,8 +102,8 @@ if(!$query){
 				}
 			</tbody>
 		</table>
-	</div>
-}	 */
+	</div> */
+}	
 
 ?>
 	<p><a href="descriptions.php">Description</a></p>
