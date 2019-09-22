@@ -331,10 +331,8 @@ header .container .col-md-7 p {
   width: 60%;
 }
 
-.newUser input[type=submit] {
-  background: rgba(208, 241, 241, 0.199);
-  border-top-right-radius: 170px;
-  border-top-left-radius: 170px;
+.newUser h2 {
+  color: blue;
 }
 
 footer {
