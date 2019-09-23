@@ -54,14 +54,6 @@
         </div>
       </nav>
     </div>
-<h3>Price: </h3>
-<p>20.99</p>
-<h3>Description: </h3>
- <p> The theory of everything is a proposed notion in the scientific community which states that there is 
-  one all-encompassing theory that proposes a framework of understanding of all of physics, 
-  combining the quantum mechanics and classical physics into a unified approach which explains the laws of the universe.
- </p>
-	  
 	  
 </header>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -70,5 +62,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
+	
+	<h3>Price: </h3>
+<p>20.99</p>
+<h3>Description: </h3>
+ <p> The theory of everything is a proposed notion in the scientific community which states that there is 
+  one all-encompassing theory that proposes a framework of understanding of all of physics, 
+  combining the quantum mechanics and classical physics into a unified approach which explains the laws of the universe.
+ </p>
+	  
 </body>
 </html>
