@@ -13,6 +13,9 @@
       background: var(--bggradient);
       width: 100%;
     }
+	h1 {
+		text-align: center;
+	}
     table{
       margin: 10px;
       padding: 5px;
