@@ -30,9 +30,9 @@
               <input type="submit" value="Search" /> 
           </form> 
           <select id="cmbSearch" name="SearchType" >
-            <option value="0">Title</option>
-            <option value="1">Author</option>
-            <option value="2">ISBN</option>
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="isbn">ISBN</option>
           </select>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
