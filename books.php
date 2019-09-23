@@ -77,7 +77,18 @@ if(!$query){
   echo "Query error";
 }else{
 
-  echo "<table>";
+/*   echo "<table>";
+  echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
+  while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
+    echo "<tr>";
+    echo "<td>" . $results['title'] . "</td>";
+    echo "<td>" . $results['author'] . "</td>";
+    echo "<td>" . $results['isbn'] . "</td>";
+    echo "</tr>";
+  }
+  echo "</table>"; */
+  
+  echo "<table class=\"table-responsive\">";
   echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
@@ -87,6 +98,7 @@ if(!$query){
     echo "</tr>";
   }
   echo "</table>";
+  
 
 }	
 
