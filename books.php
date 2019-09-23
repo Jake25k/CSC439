@@ -16,13 +16,12 @@
     table{
       margin: 10px;
       padding: 5px;
+	  border-width: 3px;
     }
     td{
       padding-right: 15px;
     }
-	div {
-		border-width: 3px;
-	}
+
   </style>
 </head>
 
