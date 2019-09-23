@@ -13,9 +13,13 @@
       background: var(--bggradient);
       width: 100%;
     }
+	h1 {
+		text-align: center;
+	}
     table{
-	  margin: 10px;
+      margin: auto;
       padding: 5px;
+	  width: 50% !important;
 	  
     }
     td{
@@ -87,18 +91,7 @@ if(!$query){
   echo "Query error";
 }else{
 
-  echo "<table>";
-  echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
-  while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
-    echo "<tr>";
-    echo "<td>" . $results['title'] . "</td>";
-    echo "<td>" . $results['author'] . "</td>";
-    echo "<td>" . $results['isbn'] . "</td>";
-    echo "</tr>";
-  }
-  echo "</table>";
-
-/*   echo "<table class=\"centered-table table-bordered table-striped table-responsive\">";
+  echo "<table class=\"centered-table table-bordered table-striped table-responsive\">";
   echo "<tr class=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
@@ -107,7 +100,7 @@ if(!$query){
     echo "<td>" . $results['isbn'] . "</td>";
     echo "</tr>";
   }
-  echo "</table>"; */
+  echo "</table>";
   
 
 }	
