@@ -78,7 +78,7 @@ if (!empty($_POST['term'])) {
         $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(author) LIKE UPPER('%$term%')");
     }
     if ($type == "2") {
-        $query = pg_query($conn, "SELECT * FROM books WHERE isbn LIKE UPPER('%$term%')");
+        $query = pg_query($conn, "SELECT * FROM books WHERE isbn LIKE '$term'");
     }
     
     if (!$query) {
