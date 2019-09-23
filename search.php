@@ -28,14 +28,13 @@
           <form action="search.php" method="post"> 
               <input type="text" name="term" />
               <input type="submit" value="Search" /> 
+              
+              <select id="cmbSearch" name="type">
+                <option value="title">Title</option>
+                <option value="author">Author</option>
+                <option value="isbn">ISBN</option>
+              </select>
           </form> 
-          <form action="search.php" method="post">
-            <select id="cmbSearch" name="type">
-                <option value=title>Title</option>
-                <option value=author>Author</option>
-                <option value=isbn>ISBN</option>
-            </select>
-          </form>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mr-auto"></div>
