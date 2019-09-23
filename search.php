@@ -30,7 +30,7 @@
               <input type="submit" value="Search" /> 
           </form> 
           <form action="search.php" method="post">
-            <select id="cmbSearch" name="SearchType">
+            <select id="cmbSearch" name="type">
                 <option value="title">Title</option>
                 <option value="author">Author</option>
                 <option value="isbn">ISBN</option>
@@ -70,9 +70,7 @@ if (!$conn) {
     
 if (!empty($_POST['term'])) {
     $term = $_POST['term'];  
-    $type = $_POST['SearchType'];
-    
-    echo '$type';
+    $type = $_POST['type'];
     
     $query = pg_query($conn, "SELECT * FROM books WHERE UPPER('%$type%') LIKE UPPER('%$term%')");
     
