@@ -98,7 +98,10 @@ if(!$query){
 }else{
 
   echo "<table class=\"centered-table table-bordered table-striped table-responsive\">";
+  echo"<thead>";
   echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
+  echo "</thead>";
+  
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
     echo "<td>" . $results['title'] . "</td>";
