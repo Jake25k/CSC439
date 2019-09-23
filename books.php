@@ -19,7 +19,7 @@
     table{
       margin: auto;
       padding: 5px;
-	  width: 75%
+	  width: 75% !important;
 	  
     }
     td{
