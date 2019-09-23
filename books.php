@@ -21,7 +21,7 @@
       padding-right: 15px;
     }
 	div {
-		border-width: thick;
+		border-width: 3px;
 	}
   </style>
 </head>
@@ -90,7 +90,7 @@ if(!$query){
     echo "</tr>";
   }
   echo "</table>"; */
-  div {border-width: thick,}
+
   echo "<table class=\"table-bordered table-striped table-responsive\">";
   echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
