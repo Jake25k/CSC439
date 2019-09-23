@@ -32,7 +32,7 @@
 		border:1px solid black;
 		margin-top:20px;
 	}
-	table.table-bordered > th > tr > th{
+	table.table-bordered > thead > tr > th{
 		border:1px solid black;
 	}
 	table.table-bordered > tbody > tr > td{
