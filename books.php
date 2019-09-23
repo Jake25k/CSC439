@@ -33,15 +33,15 @@
 	}
 	table.table-bordered{
 		border:2px solid black;
-		width: auto;
+		width: 33% !important;
 		margin-top:20px;
 	}
 	table.table-bordered > thead > tr > th{
-		width: auto;
+		width: 33% !important;
 		border:2px solid black;
 	}
 	table.table-bordered > tbody > tr > td{
-		width: auto;
+		width: 33% !important;
 		border:2px solid black;
 	}
 
