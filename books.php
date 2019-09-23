@@ -33,6 +33,16 @@
 	.column-head{
 		text-align: center;
 	}
+	table.table-bordered{
+		border:3px solid black;
+		margin-top:20px;
+	}
+	table.table-bordered > thead > tr > th{
+		border:3px solid black;
+	}
+	table.table-bordered > tbody > tr > td{
+		border:3px solid black;
+	}
 
 
   </style>
