@@ -74,10 +74,10 @@ if (!empty($_POST['term'])) {
     if ($type == "0") {
         $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%$term%')");
     }
-    else if ($type == "1") {
+    if ($type == "1") {
         $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(author) LIKE UPPER('%$term%')");
     }
-    else {
+    if ($type == "2") {
         $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(isbn) LIKE UPPER('%$term%')");
     }
     
