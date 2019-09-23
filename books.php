@@ -20,6 +20,7 @@
       margin: auto;
       padding: 5px;
 	  width: 50% !important;
+	  border-width: 3px !important;
 	  
     }
     td{
