@@ -83,7 +83,6 @@ if(!$query){
     echo "<tr>";
     echo "<td>" . $results['title'] . "</td>";
     echo "<td>" . $results['author'] . "</td>";
-    echo "<td>" . $results['isbn'] . "</td>";
     echo "</tr>";
   }
   echo "</table>";
