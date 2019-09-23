@@ -30,9 +30,9 @@
               <input type="submit" value="Search" /> 
               
               <select name="type">
-                <option value="title">Title</option>
-                <option value="author">Author</option>
-                <option value="isbn">ISBN</option>
+                <option value="0">Title</option>
+                <option value="1">Author</option>
+                <option value="2">ISBN</option>
               </select>
           </form> 
         </div>
@@ -71,7 +71,15 @@ if (!empty($_POST['term'])) {
     $term = $_POST['term'];  
     $type = $_POST['type'];
     
-    $query = pg_query($conn, "SELECT * FROM books WHERE UPPER('%$type%') LIKE UPPER('%$term%')");
+    if ($type == "0") {
+        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%$term%')");
+    }
+    else if ($type == "1") {
+        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(author) LIKE UPPER('%$term%')");
+    }
+    else {
+        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(isbn) LIKE UPPER('%$term%')");
+    }
     
     if (!$query) {
         echo "Sorry, we couldn't find that!";
