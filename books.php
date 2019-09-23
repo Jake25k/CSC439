@@ -30,16 +30,17 @@
 	}
 	.column-head{
 		text-align: center;
+		border: 1px solid black;
 	}
 	table.table-bordered{
-		border:2px solid black;
+		border:1px solid black;
 		margin-top:20px;
 	}
 	table.table-bordered > th > tr > th{
-		border:2px solid black;
+		border:1px solid black;
 	}
 	table.table-bordered > tbody > tr > td{
-		border:2px solid black;
+		border:1px solid black;
 	}
 
 
