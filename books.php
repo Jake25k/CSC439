@@ -100,7 +100,7 @@ if(!$query){
   echo "Query error";
 }else{
 
-  echo "<table class=\"centered-table table-bordered table-striped table-responsive\">";
+  echo "<table class=\"centered-table table-bordered table-striped table-hover table-responsive\">";
   echo"<thead>";
   echo "<tr class=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   echo "</thead>";
