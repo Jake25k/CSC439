@@ -54,7 +54,29 @@
         </div>
       </nav>
     </div>
-
+<?php
+if(!$query){
+  echo "Query error";
+}else{
+  echo "<table>";
+  echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
+  while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
+    echo "<tr>";
+    echo "<td>" . $results['author'] . "</td>";
+    echo "<td>" . $results['isbn'] . "</td>";
+    echo "</tr>";
+  }
+  
+?>
+<h3>Price: </h2>
+<p>20.99</p>
+<h3>Description: </h3>
+ <p> The theory of everything is a proposed notion in the scientific community which states that there is 
+  one all-encompassing theory that proposes a framework of understanding of all of physics, 
+  combining the quantum mechanics and classical physics into a unified approach which explains the laws of the universe.
+ </p>
+	  
+	  
 </header>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
