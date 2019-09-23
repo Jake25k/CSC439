@@ -101,7 +101,7 @@ if(!$query){
 }else{
 
   echo "<table class=\"centered-table table-bordered table-striped table-responsive\">";
-  echo "<tr class=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
+  echo "<tr id=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
     echo "<td>" . $results['title'] . "</td>";
