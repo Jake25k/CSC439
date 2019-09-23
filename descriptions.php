@@ -80,7 +80,7 @@ if(!$query){
 }	
 else{
   echo "<table>";
-  echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
+  echo "<tr><th>Title</th><th>Author</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
     echo "<td>" . $results['title'] . "</td>";
