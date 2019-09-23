@@ -54,20 +54,6 @@
         </div>
       </nav>
     </div>
-<?php
-if(!$query){
-  echo "Query error";
-}else{
-  echo "<table>";
-  echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
-  while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
-    echo "<tr>";
-    echo "<td>" . $results['author'] . "</td>";
-    echo "<td>" . $results['isbn'] . "</td>";
-    echo "</tr>";
-  }
-  
-?>
 <h3>Price: </h2>
 <p>20.99</p>
 <h3>Description: </h3>
