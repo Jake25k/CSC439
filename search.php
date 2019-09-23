@@ -72,7 +72,7 @@ if (!empty($_POST['term'])) {
     }
     
     else {
-        $results = pg_fetch_array($query, NULL, PGSQL_BOTH)
+        $results = pg_fetch_array($query, NULL, PGSQL_BOTH);
             
         if (sizeof($results) < 1) {
             echo "Sorry, we couldn't find that!";
