@@ -17,8 +17,10 @@
 		text-align: center;
 	}
     table{
-      margin: auto;
+      margin-left: auto;
+	  margin-right: auto;
       padding: 5px;
+	  border-width: 10px;
     }
     td{
       padding-right: 15px;
