@@ -13,11 +13,12 @@
       background: var(--bggradient);
       width: 100%;
     }
-	h1 {
+/* 	h1 {
 		text-align: center;
-	}
+	} */
     table{
-      margin: auto;
+      /*margin: auto;*/
+	  margin: 10px;
       padding: 5px;
 	  /* width: 50% !important; */
 	  
