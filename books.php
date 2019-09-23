@@ -20,6 +20,9 @@
     td{
       padding-right: 15px;
     }
+	div {
+		border-width: thick;
+	}
   </style>
 </head>
 
