@@ -19,6 +19,7 @@
     table{
       margin: 10px;
       padding: 5px;
+	  width: 100%;
     }
     td{
       padding-right: 15px;
