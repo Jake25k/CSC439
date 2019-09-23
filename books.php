@@ -55,7 +55,7 @@
     <div class="container-fluid p-0">
       <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="Index.html">
-          <i class="fas fa-book-reader fa-2x mx-3"></i>Books</a>
+          <i class="fas fa-book-reader fa-2x mx-3"></i>Best Books</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
           aria-label="Toggle navigation">
           <i class="fas fa-align-right text-light"></i>
