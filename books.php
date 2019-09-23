@@ -28,15 +28,18 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
+	.column-head{
+		text-align: center;
+	}
 	table.table-bordered{
-		border:1px solid black;
+		border:2px solid black;
 		margin-top:20px;
 	}
 	table.table-bordered > thead > tr > th{
-		border:1px solid black;
+		border:2px solid black;
 	}
 	table.table-bordered > tbody > tr > td{
-		border:1px solid black;
+		border:2px solid black;
 	}
 
 
@@ -99,10 +102,9 @@ if(!$query){
 
   echo "<table class=\"centered-table table-bordered table-striped table-responsive\">";
   echo"<thead>";
-  echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
+  echo "<tr=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   echo "</thead>";
-  
-  while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
+    while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
     echo "<td>" . $results['title'] . "</td>";
     echo "<td>" . $results['author'] . "</td>";
