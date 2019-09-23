@@ -72,25 +72,26 @@ if (!empty($_POST['term'])) {
     }
     
     else {
-        echo "<table>";
-        echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
-            
-        while($results =         pg_fetch_array($query, NULL, PGSQL_BOTH)){
-            $numRows = pg_num_rows($results);
-            
-            if($numRows == 0){
-                echo "Sorry, we couldn't find anything!";
-            }
-            else {
+        $numRows = pg_num_rows($query);
+        
+        if ($numRows == 0) {
+            echo "Sorry, we couldn't find that!";
+        }
+        
+        else {
+            echo "<table>";
+            echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
+        
+            while($results =         pg_fetch_array($query, NULL, PGSQL_BOTH)){
                 echo "<tr>";
                 echo "<td>" . $results['title'] . "</td>";
                 echo "<td>" . $results['author'] . "</td>";
                 echo "<td>" . $results['isbn'] . "</td>";
                 echo "</tr>";
             }
-        }
             
-        echo "</table>";
+            echo "</table>";
+        }
     }
 }
 else {
