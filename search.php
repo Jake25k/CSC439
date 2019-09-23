@@ -72,7 +72,7 @@ if (!empty($_POST['term'])) {
     $term = $_POST['term'];  
     $type = $_POST['SearchType'];
     
-    $query = pg_query($conn, "SELECT * FROM books WHERE UPPER('%$type%') LIKE UPPER('%$term%')");
+    $query = pg_query($conn, "SELECT * FROM books WHERE '%$type%' LIKE UPPER('%$term%')");
     
     if (!$query) {
         echo "Sorry, we couldn't find that!";
