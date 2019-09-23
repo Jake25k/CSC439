@@ -70,17 +70,28 @@ if (!empty($_POST['term'])) {
         echo "Sorry, we couldn't find that!";
         exit;
     }
+    
     else {
-        echo "<table>";
-        echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
-        while($results = pg_fetch_array($query, NULL, PGSQL_BOTH)){
-            echo "<tr>";
-            echo "<td>" . $results['title'] . "</td>";
-            echo "<td>" . $results['author'] . "</td>";
-            echo "<td>" . $results['isbn'] . "</td>";
-            echo "</tr>";
+        $results = pg_fetch_array($query, NULL, PGSQL_BOTH)
+            
+        if (sizeof($results) < 1) {
+            echo "Sorry, we couldn't find that!";
         }
-        echo "</table>";
+        
+        else {
+            echo "<table>";
+            echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
+            
+            while($results =         pg_fetch_array($query, NULL, PGSQL_BOTH)){
+                echo "<tr>";
+                echo "<td>" . $results['title'] . "</td>";
+                echo "<td>" . $results['author'] . "</td>";
+                echo "<td>" . $results['isbn'] . "</td>";
+                echo "</tr>";
+            }
+            
+            echo "</table>";
+        }
     }
 }
 else {
