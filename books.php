@@ -28,7 +28,7 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.column-head{
+	column-head{
 		text-align: center;
 		border: 1px solid black;
 	}
