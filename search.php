@@ -29,7 +29,7 @@
               <input type="text" name="term" />
               <input type="submit" value="Search" /> 
               
-              <select id="cmbSearch" name="type">
+              <select name="type">
                 <option value="title">Title</option>
                 <option value="author">Author</option>
                 <option value="isbn">ISBN</option>
