@@ -17,14 +17,15 @@
 		text-align: center;
 	}
     table{
-      margin: 10px;
+      margin: auto;
       padding: 5px;
-	  width: 100% !important;
+	  width: 75%
+	  
     }
     td{
       padding-right: 15px;
     }
-	.centered-table{
+	centered-table{
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -98,7 +99,7 @@ if(!$query){
   }
   echo "</table>"; */
 
-  echo "<table class=\"centered-table table-bordered table-striped table-responsive\" border=\"3\">";
+  echo "<table class=\"centered-table table-bordered table-striped table-responsive\">";
   echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
