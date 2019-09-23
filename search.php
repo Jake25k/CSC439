@@ -30,11 +30,10 @@
               <input type="submit" value="Search" /> 
           </form> 
           <select id="cmbSearch" name="SearchType" >
-            <option value="0">Search by...</option>
-            <option value="1">Title</option>
-            <option value="2">Author</option>
-            <option value="3">ISBN</option>
-        </select>
+            <option value="0">Title</option>
+            <option value="1">Author</option>
+            <option value="2">ISBN</option>
+          </select>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mr-auto"></div>
@@ -69,8 +68,9 @@ if (!$conn) {
     
 if (!empty($_POST['term'])) {
     $term = $_POST['term'];  
+    $type = $_POST['SearchType'];
     
-    $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%$term%')");
+    $query = pg_query($conn, "SELECT * FROM books WHERE UPPER('%$type%') LIKE UPPER('%$term%')");
     
     if (!$query) {
         echo "Sorry, we couldn't find that!";
