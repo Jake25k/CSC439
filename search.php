@@ -76,8 +76,10 @@ if (!empty($_POST['term'])) {
         echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
             
         while($results =         pg_fetch_array($query, NULL, PGSQL_BOTH)){
-            if ($results[0] == "") {
-                echo "Sorry, we couldn't find that!";
+            $numRows = pg_num_rows($results);
+            
+            if($numRows == 0){
+                echo "Sorry, we couldn't find anything!";
             }
             else {
                 echo "<tr>";
