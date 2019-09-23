@@ -29,11 +29,11 @@
               <input type="text" name="term" />
               <input type="submit" value="Search" /> 
           </form> 
-          <form method="POST" >
-            <select id="cmbSearch" name="SearchType" >
-                <option value="title">Title</option>
-                <option value="author">Author</option>
-                <option value="isbn">ISBN</option>
+          <form action="search.php" method="post">
+            <select id="cmbSearch" name="SearchType">
+                <option value='title'>Title</option>
+                <option value='author'>Author</option>
+                <option value='isbn'>ISBN</option>
             </select>
           </form>
         </div>
