@@ -76,15 +76,15 @@ if (!empty($_POST['term'])) {
         echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
             
         while($results =         pg_fetch_array($query, NULL, PGSQL_BOTH)){
-            if ($results) {
+            if ($results == NULL) {
+                echo "Sorry, we couldn't find that!";
+            }
+            else {
                 echo "<tr>";
                 echo "<td>" . $results['title'] . "</td>";
                 echo "<td>" . $results['author'] . "</td>";
                 echo "<td>" . $results['isbn'] . "</td>";
                 echo "</tr>";
-            }
-            else {
-                echo "Sorry, we couldn't find that!";
             }
         }
             
