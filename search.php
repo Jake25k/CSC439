@@ -64,10 +64,10 @@ if (!$conn) {
 if (!empty($_POST['term'])) {
     $term = $_POST['term'];  
     
-    $query = pg_query($conn, "SELECT * FROM books WHERE title LIKE '%$term%'");
+    $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(*) LIKE UPPER('%$term%')");
     
     if (!$query) {
-        echo "An error with the query occurred.\n";
+        echo "Sorry, we couldn't find that!";
         exit;
     }
     else {
