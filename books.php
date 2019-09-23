@@ -35,7 +35,7 @@
 		border:2px solid black;
 		margin-top:20px;
 	}
-	table.table-bordered > thead > tr > th{
+	table.table-bordered > th > tr > th{
 		border:2px solid black;
 	}
 	table.table-bordered > tbody > tr > td{
