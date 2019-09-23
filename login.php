@@ -28,6 +28,12 @@
           <form action="search.php" method="post"> 
               <input type="text" name="term" />
               <input type="submit" value="Search" /> 
+              
+              <select name="type">
+                <option value="0">Title</option>
+                <option value="1">Author</option>
+                <option value="2">ISBN</option>
+              </select>
           </form> 
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
