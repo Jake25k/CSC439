@@ -29,6 +29,12 @@
               <input type="text" name="term" />
               <input type="submit" value="Search" /> 
           </form> 
+          <select id="cmbSearch" name="SearchType" >
+            <option value="0">Search by...</option>
+            <option value="1">Title</option>
+            <option value="2">Author</option>
+            <option value="3">ISBN</option>
+        </select>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mr-auto"></div>
