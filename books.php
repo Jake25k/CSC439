@@ -17,15 +17,16 @@
 		text-align: center;
 	}
     table{
-      margin-left: auto;
-	  margin-right: auto;
+      margin: 10px;
       padding: 5px;
-	  border-width: 10px;
     }
     td{
       padding-right: 15px;
     }
-	
+	.centered-table{
+		margin-left: auto;
+		margin-right: auto;
+	}
 
 
   </style>
@@ -96,7 +97,7 @@ if(!$query){
   }
   echo "</table>"; */
 
-  echo "<table class=\"table-bordered table-striped table-responsive\">";
+  echo "<table class=\"table-bordered table-striped table-responsive\" border=\"3\">";
   echo "<tr><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
