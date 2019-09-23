@@ -31,9 +31,9 @@
           </form> 
           <form action="search.php" method="post">
             <select id="cmbSearch" name="type">
-                <option value="title">Title</option>
-                <option value="author">Author</option>
-                <option value="isbn">ISBN</option>
+                <option value=title>Title</option>
+                <option value=author>Author</option>
+                <option value=isbn>ISBN</option>
             </select>
           </form>
         </div>
@@ -72,7 +72,7 @@ if (!empty($_POST['term'])) {
     $term = $_POST['term'];  
     $type = $_POST['type'];
     
-    $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%$term%')");
+    $query = pg_query($conn, "SELECT * FROM books WHERE UPPER('%$type%') LIKE UPPER('%$term%')");
     
     if (!$query) {
         echo "Sorry, we couldn't find that!";
