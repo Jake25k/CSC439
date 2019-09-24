@@ -1,9 +1,7 @@
 <?php
 require_once 'BankAccount.php';
 
-use PHPUnit\Framework\TestCase;
-
-class BankAccountTest extends TestCase
+class BankAccountTest extends PHPUnit_Framework_TestCase
 {
     protected $ba;
 
@@ -27,7 +25,9 @@ class BankAccountTest extends TestCase
     {
         try {
             $this->ba->withdrawMoney(1);
-        } catch (RuntimeException $e) {
+        }
+
+        catch (RuntimeException $e) {
             $this->assertEquals(0, $this->ba->getBalance());
 
             return;
@@ -43,7 +43,9 @@ class BankAccountTest extends TestCase
     {
         try {
             $this->ba->depositMoney(-1);
-        } catch (RuntimeException $e) {
+        }
+
+        catch (RuntimeException $e) {
             $this->assertEquals(0, $this->ba->getBalance());
 
             return;
