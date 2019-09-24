@@ -9,7 +9,7 @@ let nCount = selector => {
         // A string indicating which easing function to use for the transition.
         easing: "swing",
         /**
-         * A function to be called for each animated property of each animated element. 
+         * A function to be called for each animated property of each animated element.
          * This function provides an opportunity to
          *  modify the Tween object to change the value of the property before it is set.
          */

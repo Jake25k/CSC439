@@ -64,16 +64,16 @@
           <i class="fas fa-align-right text-light"></i>
         </button>
         <div class="search">
-          <form action="search.php" method="post"> 
+          <form action="search.php" method="post">
               <input type="text" name="term" />
-              <input type="submit" value="Search" /> 
-              
+              <input type="submit" value="Search" />
+
               <select name="type">
                 <option value="0">Title</option>
                 <option value="1">Author</option>
                 <option value="2">ISBN</option>
               </select>
-          </form> 
+          </form>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mr-auto"></div>
@@ -85,9 +85,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="books.php">BOOK INVENTORY</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="users.php">USERS</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">ABOUT </a>
@@ -108,11 +105,11 @@ if (!$conn) {
   echo "An error with the connection occurred.\n";
   exit;
 }
-    
+
 if (!empty($_POST['term'])) {
-    $term = $_POST['term'];  
+    $term = $_POST['term'];
     $type = $_POST['type'];
-    
+
     if ($type == "0") {
         $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%$term%')");
     }
@@ -122,19 +119,19 @@ if (!empty($_POST['term'])) {
     if ($type == "2") {
         $query = pg_query($conn, "SELECT * FROM books WHERE CAST(isbn AS text) LIKE '%$term%'");
     }
-    
+
     if (!$query) {
         echo "Sorry, we couldn't find that!";
         exit;
     }
-    
+
     else {
         $numRows = pg_num_rows($query);
-        
+
         if ($numRows == 0) {
             echo "Sorry, we couldn't find that!";
         }
-        
+
         else {
 			echo "<table class=\"centered-table table-bordered table-striped table-hover table-responsive\">";
 			echo"<thead>";
