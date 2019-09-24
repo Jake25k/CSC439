@@ -4,9 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3955437f6cab9edb1ac3c420aefbdeb9",
-    "packages": [],
-    "packages-dev": [
+    "content-hash": "d0ecb5688b18a15ab30e82b0a5f338a6",
+    "packages": [
         {
             "name": "phpunit/php-code-coverage",
             "version": "1.2.18",
@@ -422,6 +421,7 @@
             "time": "2013-05-10T00:09:46+00:00"
         }
     ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
