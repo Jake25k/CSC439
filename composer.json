@@ -1,0 +1,8 @@
+{
+    "require": {
+        "symfony/validator":         "2.1.*",
+        "doctrine/dbal":             "2.2.*",
+        "jtreminio/test-extensions": "dev-master"
+    },
+    "minimum-stability": "dev"
+}
