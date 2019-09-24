@@ -100,7 +100,6 @@
 <?php
 
 $db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
-
 $query = pg_query($db_con, "SELECT * from books");
 if(!$query){
   echo "Query error";
@@ -110,12 +109,14 @@ if(!$query){
   echo"<thead>";
   echo "<tr class=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
   echo "</thead>";
+  $i = 1;
     while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
     echo "<tr>";
-    echo "<td>" . $results['title'] . "</td>";
+    echo "<td><a href='view.php?id=$i'>" . $results['title'] . "</a></td>";
     echo "<td>" . $results['author'] . "</td>";
     echo "<td>" . $results['isbn'] . "</td>";
     echo "</tr>";
+    $i++;
   }
   echo "</table>";
 
@@ -123,7 +124,7 @@ if(!$query){
 }
 
 ?>
-	<p><a href="descriptions.php">Description</a></p>
+
 </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
