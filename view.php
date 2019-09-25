@@ -8,50 +8,10 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
   <link rel="stylesheet" href="styles/Style.css" />
-  <style>
-    header{
-      padding-left: 5px;
-      background: var(--bggradient);
-      width: 100%;
-    }
-	h1 {
-		text-align: center;
-	}
-    table{
-      margin: auto;
-      padding: 5px;
-	  width: 100% !important;
-    }
-    td{
-      padding-right: 15px;
-    }
-	centered-table{
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.column-head{
-		text-align: center;
-	}
-	table.table-bordered{
-		border:2px solid black;
-		margin-top:20px;
-	}
-	table.table-bordered > thead > tr > th{
-		width: 75% !important;
-		border:2px solid black;
-	}
-	table.table-bordered > tbody > tr > td{
-		width: 75% !important;
-		border:2px solid black;
-	}
-
-
-  </style>
 </head>
 
 
 <body>
-
 <header>
     <div class="container-fluid p-0">
       <nav class="navbar navbar-expand-lg">
@@ -95,33 +55,28 @@
       </nav>
     </div>
 </header>
-<h1>All Books</h1>
 <main>
 <?php
 
+$id = $_GET['id']; //get the book id from the url
+
 $db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
-$query = pg_query($db_con, "SELECT * from books");
-if(!$query){
-  echo "Query error";
-}else{
-
-  echo "<table class=\"centered-table table-bordered table-striped table-hover table-responsive\">";
-  echo"<thead>";
-  echo "<tr class=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
-  echo "</thead>";
-    while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
-    $i = $results['book_id'];
-    echo "<tr>";
-    echo "<td><a href='view.php?id=$i'>" . $results['title'] . "</a></td>";
-    echo "<td>" . $results['author'] . "</td>";
-    echo "<td>" . $results['isbn'] . "</td>";
-    echo "</tr>";
-  }
-  echo "</table>";
-
-
+$result = pg_query($db_con, "SELECT * FROM books WHERE book_id=" . $id . ";");
+if (!$result) {
+  echo "An error occurred.\n";
+  exit;
 }
-
+else{
+  $row = pg_fetch_row($result);
+  echo "<br />";
+  echo "<h1 style='text-align:center;'> Title: $row[0]</h1>";
+  echo "<h3 style='text-align:center;'> Author: $row[1]</h3>";
+  echo "<h4 style='text-align:center;'> ISBN: $row[2]</h4>";
+  echo "<br />\n";
+  echo "<div style='text-align:center;'>
+          <button class='btn btn-primary'>Add to Cart</button>
+        </div>";
+}
 ?>
 
 </main>

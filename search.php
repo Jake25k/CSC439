@@ -138,8 +138,9 @@ if (!empty($_POST['term'])) {
 			echo "<tr class=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
 			echo "</thead>";
 			while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
-				echo "<tr>";
-				echo "<td>" . $results['title'] . "</td>";
+        $i = $results['book_id'];
+        echo "<tr>";
+				echo "<td><a href='view.php?id=$i'>" . $results['title'] . "</a></td>";
 				echo "<td>" . $results['author'] . "</td>";
 				echo "<td>" . $results['isbn'] . "</td>";
 				echo "</tr>";
