@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit colors="true" verbose="true">
+    <php>
+        <var name="DB_DSN" value="mysql:dbname=db8u3gdkjq4l6i;host=2-54-235-100-99.compute-1.amazonaws.com" />
+        <var name="DB_USER" value="oihnrigiktbsug" />
+        <var name="DB_PASSWD" value="03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f" />
+        <var name="DB_DBNAME" value="db8u3gdkjq4l6i" />
+    </php>
     <testsuites>
         <testsuite name="Application Test Suite">
             <directory suffix=".php">tests/unit</directory>

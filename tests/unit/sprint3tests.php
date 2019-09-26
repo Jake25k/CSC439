@@ -4,10 +4,10 @@ namespace tests\unit;
 
 class UnitTests extends \PHPUnit\Framework\TestCase
 {
-  public function testTrueIsTrue()
+  public function testGetBookIdIsInt()
   {
-    $foo = true;
-    $this->assertTrue($foo);
+    $i = 1;
+    $this->assertIsInt($i);
   }
 }
 
