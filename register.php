@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if (empty($errors)){
 		// Make the query
 		$q = "insert into users (firstname, lastname, username, password, email)
-		values ('$fname', '$lname', '$uname', '$pass', '$email')";
+		values ('$fname', '$lname', '$uname', digest('$pass', 'sha512'), '$email')";
 		$r = pg_query($dbc, $q); // Run the query
 		
 		// If ran OK:
