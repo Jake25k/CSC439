@@ -40,9 +40,7 @@
               <a class="nav-link" href="books.php">BOOK INVENTORY</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="users.php">USERS
-				<span class="sr-only">(current)</span>
-			  </a>
+              <a class="nav-link" href="about.html">ABOUT</a>
             </li>
 			<li class="nav-item">
               <a class="nav-link" href="login.php">LOGIN</a>
