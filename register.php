@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	pg_close($dbc);
 } // End of main submit
 ?>
-<div class="login-page">
+<div class="register">
 <div class="form">
 	<form class="register" action="register.php" method="post">
 		<ul style="list-style-type: none";>
