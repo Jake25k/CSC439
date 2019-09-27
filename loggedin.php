@@ -50,59 +50,27 @@
       </nav>
     </div>
 </header>
-<?php
-// Check if the form has been submitted:
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-	// Need two helper files:
+<?php 
+session_start(); // Start the session.
+
+// If no session value is present, redirect the user:
+if (!isset($_SESSION['uname'])) {
+
+	// Need the functions:
 	require('includes/login_functions.inc.php');
-	
-	// Connect to database
-	$dbc = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
+	redirect_user();
 
-	// Check the login:
-	list ($check, $data) = check_login($dbc, $_POST['uname'], $_POST['pass']);
+}
 
-	if ($check) { // OK!
+// Set the page title and include the HTML header:
+$page_title = 'Logged In!';
 
-		// Set the session data:
-		session_start();
-		$_SESSION['email'] = $data['email'];
-		$_SESSION['firstname'] = $data['firstname'];
-		$_SESSION['lastname'] = $data['lastname'];
-
-		// Redirect:
-		redirect_user('loggedin.php');
-
-	} else { // Unsuccessful!
-
-		// Assign $data to $errors for login_page.inc.php:
-		$errors = $data;
-
-	}
-
-	pg_close($dbc); // Close the database connection.
-
-} // End of the main submit conditional.
+// Print a customized message:
+echo "<h1>Logged In!</h1>
+<p>You are now logged in, {$_SESSION['firstname']} {$_SESSION['lastname']}!</p>";
 
 ?>
-
-
-
-<div class="login-page">
-<div class="form">
-	<form class="login-page" action="login.php" method="post">
-		<ul style="list-style-type: none";>
-			<li><label for="uname"><b>Username</b></label></li>
-			<input type="text">
-			<li><label for="pass"><b>Password</b></label></li>
-			<input type="password">
-			<li><b>New User Click <a href="register.php">here</b></a></li><br>
-			<li><button type="submit">Login</button></li>
-		</ul>
-	</form>
-</div>
-</div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
