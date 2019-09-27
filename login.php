@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="login-page">
 <div class="form">
-	<form class="register">
+	<form class="register" action="login.php" method="post">
 		<ul style="list-style-type: none";>
 			<li><label for="uname"><b>Username</b></label></li>
 			<input type="text">
