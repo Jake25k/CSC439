@@ -115,7 +115,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	// No errors occured: Register the user to the database
 	if (empty($errors)){
 		// Make the query
-		$q = "insert into users (firstname, lastname, username, password, email) values ('$fname', '$lname', '$uname', SHA2('$pass', 512), '$email')";
+		$q = "insert into users (firstname, lastname, username, password, email)
+		values ('$fname', '$lname', '$uname', '$pass', '$email')";
 		$r = pg_query($dbc, $q); // Run the query
 		
 		// If ran OK:
