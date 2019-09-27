@@ -44,9 +44,6 @@
 				<span class="sr-only">(current)</span>
 			  </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">ABOUT</a>
-            </li>
 			<li class="nav-item">
               <a class="nav-link" href="login.php">LOGIN</a>
             </li>
@@ -109,7 +106,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		else{
 			$pass = pg_escape_string($dbc, trim($_POST['pass']));
 		}
-	} else{
+	}
+	else{
 		$errors[] = 'Your password must be at least 8 characters and contain at least one digit, 
 					uppercase letter, and lowercase letter.';
 	}
@@ -117,8 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	// No errors occured: Register the user to the database
 	if (empty($errors)){
 		// Make the query
-		$q = "insert into users (firstname, lastname, username, password, email)
-			values ('$fname', '$lname', '$uname', SHA2('$pass', 512), '$email')";
+		$q = "insert into users (firstname, lastname, username, password, email) values ('$fname', '$lname', '$uname', SHA2('$pass', 512), '$email')";
 		$r = pg_query($dbc, $q); // Run the query
 		
 		// If ran OK:
