@@ -14,27 +14,27 @@ function check_login($dbc, $username = '', $pass = '') {
 	if (empty($username)) {
 		$errors[] = 'You forgot to enter your email address.';
 	} else {
-		$e = mysqli_real_escape_string($dbc, trim($username));
+		$e = pg_escape_string($dbc, trim($username));
 	}
 
 	// Validate the password:
 	if (empty($pass)) {
 		$errors[] = 'You forgot to enter your password.';
 	} else {
-		$p = mysqli_real_escape_string($dbc, trim($pass));
+		$p = pg_escape_string($dbc, trim($pass));
 	}
 
 	if (empty($errors)) { // If everything's OK.
 
 		// Retrieve the user_id and first_name for that email/password combination:
-		$q = "SELECT user_id, first_name, last_name FROM users WHERE email='$e' AND pass=SHA2('$p', 512)";
-		$r = @mysqli_query($dbc, $q); // Run the query.
+		$q = "SELECT first_name, last_name FROM users WHERE email='$e' AND pass=SHA2('$p', 512)";
+		$r = @pg_query($dbc, $q); // Run the query.
 
 		// Check the result:
-		if (mysqli_num_rows($r) == 1) {
+		if (pg_num_rows($r) == 1) {
 
 			// Fetch the record:
-			$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+			$row = pg_fetch_array($r, PGSQL_ASSOC);
 
 			// Return true and the record:
 			return [true, $row];
