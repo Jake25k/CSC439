@@ -78,6 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		// Assign $data to $errors for login_page.inc.php:
 		$errors = $data;
+		echo '<h1>Error!</h1>
+			<p class="error">The following error(s) occurred:<br>';
+			foreach ($errors as $msg) { // Print each error.
+				echo " - $msg<br>\n";
+			}
+			echo '</p><p>Please try again.</p><p><br></p>';
 
 	}
 
