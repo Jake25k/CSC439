@@ -1,11 +1,24 @@
 <?php 
-/* This function validates the form data (the email address and password).
- * If both are present, the database is queried.
- * The function requires a database connection.
- * The function returns an array of information, including:
- * - a TRUE/FALSE variable indicating success
- * - an array of either errors or the database result
- */
+
+function redirect_user($page = 'index.php') {
+
+	// Start defining the URL...
+	// URL is http:// plus the host name plus the current directory:
+	$url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
+
+	// Remove any trailing slashes:
+	$url = rtrim($url, '/\\');
+
+	// Add the page:
+	$url .= '/' . $page;
+
+	// Redirect the user:
+	header("Location: $url");
+	exit(); // Quit the script.
+
+} // End of redirect_user() function.
+
+
 function check_login($dbc, $username = '', $pass = '') {
 
 	$errors = []; // Initialize error array.
