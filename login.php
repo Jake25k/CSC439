@@ -68,8 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// Set the session data:
 		session_start();
 		$_SESSION['email'] = $data['email'];
-		$_SESSION['firstname'] = $data['firstname'];
-		$_SESSION['lastname'] = $data['lastname'];
+		$_SESSION['firstname'] = $data['fname'];
+		$_SESSION['lastname'] = $data['lname'];
 
 		// Redirect:
 		redirect_user('loggedin.php');
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			foreach ($errors as $msg) { // Print each error.
 				echo " - $msg<br>\n";
 			}
-			echo '</p><p>Please try again.</p><p><br></p>';
+			echo '</p><p>Please try again.</p>';
 
 	}
 
