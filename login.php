@@ -55,7 +55,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	// Need helper files:
-	require('includes/login_functions.inc.php');
+	//require('includes/login_functions.inc.php');
 	
 	// Connect to database
 	$dbc = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
@@ -84,6 +84,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	pg_close($dbc); // Close the database connection.
 
 } // End of the main submit conditional.
+
+
+function check_login($dbc, $username = '', $pass = '') {
+
+	$errors = []; // Initialize error array.
+
+	// Validate the email address:
+	if (empty($username)) {
+		$errors[] = 'You forgot to enter your email address.';
+	} else {
+		$uname = pg_escape_string($dbc, trim($username));
+	}
+
+	// Validate the password:
+	if (empty($pass)) {
+		$errors[] = 'You forgot to enter your password.';
+	} else {
+		$p = pg_escape_string($dbc, trim($pass));
+	}
+
+	if (empty($errors)) { // If everything's OK.
+
+		// Retrieve the user_id and first_name for that email/password combination:
+		$q = "SELECT firstname, lastname FROM users WHERE username='$uname' AND password='$p'";
+		$r = @pg_query($dbc, $q); // Run the query.
+
+		// Check the result:
+		if (pg_num_rows($r) == 1) {
+
+			// Fetch the record:
+			$row = pg_fetch_array($r, PGSQL_ASSOC);
+
+			// Return true and the record:
+			return [true, $row];
+
+		} else { // Not a match!
+			$errors[] = 'The email address and password entered do not match those on file.';
+		}
+
+	} // End of empty($errors) IF.
+
+	// Return false and the errors:
+	return [false, $errors];
+
+} // End of check_login() function.
 
 ?>
 
