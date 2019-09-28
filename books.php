@@ -103,7 +103,7 @@ $db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 d
 $query = pg_query($db_con, "SELECT * from books");
 
 $rows = pg_num_rows($query);
-echo $rows . " row(s) returned.\n";
+ echo "<h1>$rows . \" row(s) returned.\n\" </h1>";
 
 if(!$query){
   echo "Query error";
