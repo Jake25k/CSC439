@@ -331,6 +331,11 @@ header .container .col-md-7 p {
   width: 60%;
 }
 
+.register{
+	width: 360px;
+	margin: auto;
+}
+
 .login-page{
 	width: 360px;
 	padding: 10% 0 0;
