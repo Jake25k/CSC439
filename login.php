@@ -54,7 +54,7 @@
 // Check if the form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-	// Need two helper files:
+	// Need helper files:
 	require('includes/login_functions.inc.php');
 	
 	// Connect to database
