@@ -149,6 +149,22 @@ if(!$query){
 
 }
 
+if($pages > 1){
+	
+	$current_page = ($start/$display) + 1;
+	if($current_page != 1){
+		echo '<a href="books.php?s=' . ($start - $display) . '&p=' . $pages . '">Previous</a>';
+	}
+	for ($i = 1; $i <= $pages; $i++){
+		if($i != $current_page){
+			echo '<a href="books.php?s=' . (($display * ($i-1))) . '&p=' . $pages . '">' . $i . '</a>';
+		}
+	}
+	
+	if($current_page != $pages) {
+		echo '<a href="books.php?s=' . ($start + $display) . '&p=' . $pages . '">Next</a>';
+	}
+
 ?>
 
 </main>
