@@ -144,10 +144,10 @@ function check_login($dbc, $username = '', $pass = '') {
 <div class="form">
 	<form class="login-page" action="login.php" method="post">
 		<ul style="list-style-type: none";>
-			<li><label for="uname"><b>Username</b></label></li>
-			<input type="text">
-			<li><label for="pass"><b>Password</b></label></li>
-			<input type="password">
+			<li><label><b>Username</b></label></li>
+			<input type="text" name="uname" value="">
+			<li><label><b>Password</b></label></li>
+			<input type="password" name="pass" value="">
 			<li><b>New User Click <a href="register.php">here</b></a></li><br>
 			<li><button type="submit">Login</button></li>
 		</ul>
