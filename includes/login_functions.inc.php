@@ -37,7 +37,7 @@ function check_login($dbc, $username = '', $pass = '') {
 	if (empty($errors)) { // If everything's OK.
 
 		// Retrieve the user_id and first_name for that email/password combination:
-		$q = "SELECT firstname, lastname FROM users WHERE username='$uname' AND pass='$p'";
+		$q = "SELECT firstname, lastname FROM users WHERE username='$uname' AND password='$p'";
 		$r = @pg_query($dbc, $q); // Run the query.
 
 		// Check the result:
