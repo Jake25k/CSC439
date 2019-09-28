@@ -1,13 +1,16 @@
 <?php 
 
-function redirect_user() {
+function redirect_user($page = 'index.php') {
 
 	// Start defining the URL...
 	// URL is http:// plus the host name plus the current directory:
-	$url = 'http://csc439.herokuapp.com';
+	$url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
 
 	// Remove any trailing slashes:
 	$url = rtrim($url, '/\\');
+
+	// Add the page:
+	$url .= '/' . $page;
 
 	// Redirect the user:
 	header("Location: $url");
@@ -22,7 +25,7 @@ function check_login($dbc, $username = '', $pass = '') {
 
 	// Validate the email address:
 	if (empty($username)) {
-		$errors[] = 'You forgot to enter your email address.';
+		$errors[] = 'You forgot to enter your username.';
 	} else {
 		$uname = pg_escape_string($dbc, trim($username));
 	}
@@ -36,7 +39,7 @@ function check_login($dbc, $username = '', $pass = '') {
 
 	if (empty($errors)) { // If everything's OK.
 
-		// Retrieve the user_id and first_name for that email/password combination:
+		// Retrieve the firstname and lastname for that username/password combination:
 		$q = "SELECT firstname, lastname FROM users WHERE username='$uname' AND password='$p'";
 		$r = @pg_query($dbc, $q); // Run the query.
 
@@ -50,7 +53,7 @@ function check_login($dbc, $username = '', $pass = '') {
 			return [true, $row];
 
 		} else { // Not a match!
-			$errors[] = 'The email address and password entered do not match those on file.';
+			$errors[] = 'The username and password entered do not match those on file.';
 		}
 
 	} // End of empty($errors) IF.

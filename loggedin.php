@@ -48,7 +48,7 @@
             </li> -->
 			<li class="nav-item">
 			<?php // Create a login/logout link:
-				if ((isset($_SESSION['user_id'])) && (basename($_SERVER['PHP_SELF']) != 'logout.php')) {
+				if ((isset($_SESSION['uname'])) && (basename($_SERVER['PHP_SELF']) != 'logout.php')) {
 					echo '<a href="logout.php">Logout</a>';
 				}
 				else{
