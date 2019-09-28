@@ -42,30 +42,19 @@
             <li class="nav-item">
               <a class="nav-link" href="about.html">ABOUT</a>
             </li>
-			<!-- 
 			<li class="nav-item">
               <a class="nav-link" href="login.php">LOGIN</a>
-            </li> -->
-			<li class="nav-item">
-			<?php // Create a login/logout link:
-				if ((isset($_SESSION['user_id'])) && (basename($_SERVER['PHP_SELF']) != 'logout.php')) {
-					echo '<a href="logout.php">Logout</a>';
-				}
-				else{
-					echo '<a href="login.php">Login</a>';
-				}
-			?>
-			</li>
+            </li>
           </ul>
         </div>
       </nav>
     </div>
 </header>
 
-<?php 
-session_start(); // Start the session.
+<?php
+session_start(); // Access the existing session.
 
-// If no session value is present, redirect the user:
+// If no session variable exists, redirect the user:
 if (!isset($_SESSION['uname'])) {
 
 	// Need the functions:
@@ -73,14 +62,24 @@ if (!isset($_SESSION['uname'])) {
 	redirect_user();
 
 }
+else{ // Cancel the session:
+
+	// Save the first and last name
+	$fname = $_SESSION['firstname'];
+	$lname = $_SESSION['lastname'];
+	
+	$_SESSION = []; // Clear the variables.
+	session_destroy(); // Destroy the session itself.
+	setcookie('PHPSESSID', '', time()-3600, '/', '', 0, 0); // Destroy the cookie.
+
+}
 
 // Set the page title and include the HTML header:
-$page_title = 'Logged In!';
+$page_title = 'Logged Out!';
 
 // Print a customized message:
-echo "<h1>Logged In!</h1>
-<p>You are now logged in, {$_SESSION['firstname']} {$_SESSION['lastname']}!</p>
-<p><a href=\"logout.php\">Logout</a></p>";
+echo "<h1>Logged Out!</h1>
+<p>You are now logged out $fName $lName!</p>";
 
 ?>
 
