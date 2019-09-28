@@ -50,19 +50,9 @@
             <li class="nav-item">
               <a class="nav-link" href="about.html">ABOUT </a>
             </li>
-			<!-- 
 			<li class="nav-item">
               <a class="nav-link" href="login.php">LOGIN</a>
-            </li> -->
-			<li class="nav-item">
-			<?php // Create a login/logout link:
-				if ((isset($_SESSION['uname'])) && (basename($_SERVER['PHP_SELF']) != 'logout.php')) {
-					echo '<a href="logout.php">Logout</a>';
-				}
-				else{
-					echo '<a href="login.php">Login</a>';
-				}
-			?>
+            </li>
           </ul>
         </div>
       </nav>
