@@ -24,7 +24,7 @@ function check_login($dbc, $username = '', $pass = '') {
 	if (empty($username)) {
 		$errors[] = 'You forgot to enter your email address.';
 	} else {
-		$e = pg_escape_string($dbc, trim($username));
+		$uname = pg_escape_string($dbc, trim($username));
 	}
 
 	// Validate the password:
@@ -37,7 +37,7 @@ function check_login($dbc, $username = '', $pass = '') {
 	if (empty($errors)) { // If everything's OK.
 
 		// Retrieve the user_id and first_name for that email/password combination:
-		$q = "SELECT first_name, last_name FROM users WHERE email='$e' AND pass=SHA2('$p', 512)";
+		$q = "SELECT firstname, lastname FROM users WHERE username='$uname' AND pass='$p'";
 		$r = @pg_query($dbc, $q); // Run the query.
 
 		// Check the result:
