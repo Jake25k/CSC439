@@ -61,13 +61,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$dbc = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
 
 	// Check the login:
-	list ($check, $data) = check_login($dbc, $_POST['uname'], $_POST['pass']);
+	list ($check, $data) = check_login($dbc, $_POST['email'], $_POST['pass']);
 
 	if ($check) { // OK!
 
 		// Set the session data:
 		session_start();
-		$_SESSION['email'] = $data['email'];
+		$_SESSION['uname'] = $data['uname'];
 		$_SESSION['firstname'] = $data['fname'];
 		$_SESSION['lastname'] = $data['lname'];
 

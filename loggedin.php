@@ -66,7 +66,7 @@
 session_start(); // Start the session.
 
 // If no session value is present, redirect the user:
-if (!isset($_SESSION['uname'])) {
+if (!isset($_SESSION['email'])) {
 
 	// Need the functions:
 	require('includes/login_functions.inc.php');
