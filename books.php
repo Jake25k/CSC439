@@ -100,43 +100,20 @@
 <?php
 
 $display = 10;
-if (isset($_GET['p']) && is_numeric($_GET['p'])){
-	$pages = $_GET['p'];
-}else{
-	$db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
-	$query = pg_query($db_con, "SELECT * COUNT * from books");
-	$row = pg_fetch_array($query, NULL, PGSQL_NUM);
-	$records = $row[0];
-	
-	if ($records > $display){
-		$pages = ceil($records/$display);
-	}else{
-		$pages = 1;
-	}
-}
-
-if(isset($_GET['s']) && is_numeric($_GET['s'])){
-	$start = $_GET['s'];
-}else{
-	$start = 0;
-}
-
-
 $db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
 $query = pg_query($db_con, "SELECT * from books");
+
 
 
 if(!$query){
   echo "Query error";
 }else{
 
-	echo "<table class=\"centered-table table-bordered table-striped table-hover table-responsive\">";
-	echo"<thead>";
-	echo "<tr class=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
-	echo "</thead>";
-	
-    while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
-		
+  echo "<table class=\"centered-table table-bordered table-striped table-hover table-responsive\">";
+  echo"<thead>";
+  echo "<tr class=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
+  echo "</thead>";
+    while($results = pg_fetch_array($query, NULL, PGSQL_BOTH)){
     $i = $results['book_id'];
     echo "<tr>";
     echo "<td><a href='view.php?id=$i'>" . $results['title'] . "</a></td>";
@@ -148,22 +125,6 @@ if(!$query){
 
 
 }
-
-if($pages > 1){
-	
-	$current_page = ($start/$display) + 1;
-	if($current_page != 1){
-		echo '<a href="books.php?s=' . ($start - $display) . '&p=' . $pages . '">Previous</a>';
-	}
-	for ($i = 1; $i <= $pages; $i++){
-		if($i != $current_page){
-			echo '<a href="books.php?s=' . (($display * ($i-1))) . '&p=' . $pages . '">' . $i . '</a>';
-		}
-	}
-	
-	if($current_page != $pages) {
-		echo '<a href="books.php?s=' . ($start + $display) . '&p=' . $pages . '">Next</a>';
-	}
 
 ?>
 
