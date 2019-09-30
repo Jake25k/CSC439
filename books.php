@@ -135,7 +135,7 @@ $query = pg_query($db_con, "SELECT * from books LIMIT $display OFFSET $start");
 
 
 if(!$query){
-  echo "Query error";
+	echo "Query error";
 }else{
 
 	echo "<table class=\"centered-table table-bordered table-striped table-hover table-responsive\">";
@@ -145,23 +145,25 @@ if(!$query){
 	
     while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
 		
-    $i = $results['book_id'];
-    echo "<tr>";
-    echo "<td><a href='view.php?id=$i'>" . $results['title'] . "</a></td>";
-    echo "<td>" . $results['author'] . "</td>";
-    echo "<td>" . $results['isbn'] . "</td>";
-    echo "</tr>";
-  }
-  echo "</table>";
-
-
+		$i = $results['book_id'];
+		echo "<tr>";
+		echo "<td><a href='view.php?id=$i'>" . $results['title'] . "</a></td>";
+		echo "<td>" . $results['author'] . "</td>";
+		echo "<td>" . $results['isbn'] . "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";
 }
+
 
 if($pages > 1){
 	
 	echo '<br /><p>';
 	
 	$current_page = ($start/$display) + 1;
+	
+	echo '<a href="books.php?s=0&p=' . $pages . '">First</a>		';
+	
 	if($current_page != 1){
 		echo '<a href="books.php?s=' . ($start - $display) . '&p=' . $pages . '"><<</a>		';
 	}
@@ -169,7 +171,7 @@ if($pages > 1){
 		if($i != $current_page){
 			echo '<a href="books.php?s=' . (($display * ($i-1))) . '&p=' . $pages . '">' . $i . '</a>		';
 		} else {
-			$i . '    ';
+			echo $i . '		';
 		}
 	}
 	
@@ -177,6 +179,7 @@ if($pages > 1){
 		echo '<a href="books.php?s=' . ($start + $display) . '&p=' . $pages . '">>></a>		';
 	}
 	
+	echo '<a href="books.php?s=' . (($pages - 1) * $display) . '&p=' . $pages . '">Last</a>'; 
 	echo '</p>';
 }
 
