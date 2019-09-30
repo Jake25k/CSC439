@@ -135,6 +135,7 @@ if (!empty($_POST['term'])) {
         }
 
         else {
+            echo "We found " . $numRows . " books from your search for " . $type . $escapeterm;
 			echo "<table class=\"centered-table table-bordered table-striped table-hover table-responsive\">";
 			echo"<thead>";
 			echo "<tr class=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
