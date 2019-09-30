@@ -113,13 +113,13 @@ if (!empty($_POST['term'])) {
     $escapeterm = pg_escape_string($term);
 
     if ($type == "0") {
-        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('{$escapeterm}')");
+        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%{$escapeterm}%')");
     }
     if ($type == "1") {
-        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(author) LIKE UPPER('{$escapeterm}')");
+        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(author) LIKE UPPER('%{$escapeterm}%')");
     }
     if ($type == "2") {
-        $query = pg_query($conn, "SELECT * FROM books WHERE CAST(isbn AS text) LIKE '{$escapeterm}'");
+        $query = pg_query($conn, "SELECT * FROM books WHERE CAST(isbn AS text) LIKE '%{$escapeterm}%'");
     }
 
     if (!$query) {
