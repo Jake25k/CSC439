@@ -109,16 +109,20 @@ if (!$conn) {
 if (!empty($_POST['term'])) {
     $term = $_POST['term'];
     $type = $_POST['type'];
-
+    
     if ($type == "0") {
-        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%$term%')");
+        $query = $dhb->prepare("SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%:term%')");
     }
     if ($type == "1") {
-        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(author) LIKE UPPER('%$term%')");
+        $query = $dhb->prepare("SELECT * FROM books WHERE UPPER(author) LIKE UPPER('%:term%')");
     }
     if ($type == "2") {
-        $query = pg_query($conn, "SELECT * FROM books WHERE CAST(isbn AS text) LIKE '%$term%'");
+        $query = $dhb->prepare("SELECT * FROM books WHERE CAST(isbn AS text) LIKE '%:term%'");
     }
+    
+    $query->bindParam(':term', $term, PDO::PARAM_STR);
+    
+    pg_query($conn, $query);
 
     if (!$query) {
         echo "Sorry, we couldn't find that!";
