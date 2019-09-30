@@ -111,13 +111,13 @@ if (!empty($_POST['term'])) {
     $type = $_POST['type'];
 
     if ($type == "0") {
-        $query = pg_query_params($conn, 'SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%$1%')', $term);
+        $query = pg_query_params($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%$1%')", $term);
     }
     if ($type == "1") {
-        $query = pg_query_params($conn, 'SELECT * FROM books WHERE UPPER(author) LIKE UPPER('%$1%')', $term);
+        $query = pg_query_params($conn, "SELECT * FROM books WHERE UPPER(author) LIKE UPPER('%$1%')", $term);
     }
     if ($type == "2") {
-        $query = pg_query_params($conn, 'SELECT * FROM books WHERE CAST(isbn AS text) LIKE '%$1%'', $term);
+        $query = pg_query_params($conn, "SELECT * FROM books WHERE CAST(isbn AS text) LIKE '%$1%'", $term);
     }
 
     if (!$query) {
