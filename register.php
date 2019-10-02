@@ -151,13 +151,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	<form class="register" action="register.php" method="post">
 		<ul style="list-style-type: none";>
 			<li><label><b>First Name</b></label></li>
-			<input type="text" name="fname" value="">
+			<input type="text" name="fname" value="<?php if(isset($_POST['fname'])) echo $_POST['fname']; ?>">
 			<li><label><b>Last Name</b></label></li>
-			<input type="text" name="lname" value="">
+			<input type="text" name="lname" value="<?php if(isset($_POST['lname'])) echo $_POST['lname']; ?>">
 			<li><label><b>Email</b></label></li>
-			<input type="email" name="email" value="">
+			<input type="email" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>">
 			<li><label><b>Username</b></label></li>
-			<input type="text" name="uname" value="">
+			<input type="text" name="uname" value="<?php if(isset($_POST['uname'])) echo $_POST['uname']; ?>">
 			<li><label><b>Password</b></label></li>
 			<input type="password" name="pass" value="">
 			<li><label><b>Confirm Password</b></label></li>

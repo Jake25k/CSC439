@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<form class="login-page" action="login.php" method="post">
 		<ul style="list-style-type: none";>
 			<li><label><b>Username</b></label></li>
-			<input type="text" name="uname" value="">
+			<input type="text" name="uname" value="<?php if(isset($_POST['uname'])) echo $_POST['uname']; ?>">
 			<li><label><b>Password</b></label></li>
 			<input type="password" name="pass" value="">
 			<li><b>New User Click <a href="register.php">here</b></a></li><br>
