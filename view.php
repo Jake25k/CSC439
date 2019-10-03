@@ -58,7 +58,7 @@
 <main>
 <?php
 
-$id = $escapeterm = pg_escape_string($_GET['id']); //get the book id from the url
+$id = $_GET['id']; //get the book id from the url
 
 $db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
 $result = pg_query($db_con, "SELECT * FROM books WHERE book_id=" . $id . ";");
@@ -68,14 +68,15 @@ if (!$result) {
 }
 else{
   $row = pg_fetch_row($result);
+  echo "<div style='text-align:center;'>";
   echo "<br />";
-  echo "<h1 style='text-align:center;'> Title: $row[0]</h1>";
-  echo "<h3 style='text-align:center;'> Author: $row[1]</h3>";
-  echo "<h4 style='text-align:center;'> ISBN: $row[2]</h4>";
+  echo "<img src='assets/covers/$row[4]' style='height: 160px;'/>";
+  echo "<h1> Title: $row[0]</h1>";
+  echo "<h3> Author: $row[1]</h3>";
+  echo "<h4> ISBN: $row[2]</h4>";
   echo "<br />\n";
-  echo "<div style='text-align:center;'>
-          <button class='btn btn-primary'>Add to Cart</button>
-        </div>";
+  echo "<button class='btn btn-primary'>Add to Cart</button>";
+  echo "</div>";
 }
 ?>
 
