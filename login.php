@@ -1,46 +1,53 @@
 
 <?php
-session_start();
-include('includes/header.html');
+	session_start();
+	include('includes/header.html');
 
-$page_title = 'Login';
+	$page_title = 'Login';
 
-/* Connect to database */
-$dbc = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
+	/* Connect to database */
+	$dbc = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
 
-/* Check if the form has been submitted: */
-if (isset($_POST['sub'])) {
-
-	$errors = []; // Initialize error array.
-	$u = stripslashes($_POST['uname']);
-	$p = stripslashes($_POST['pass']);
-	$uname = pg_escape_string($dbc, trim($u));
-	$pwd = pg_escape_string($dbc, trim($p));
-
-	if (empty($errors)) {
-		/* Retrieve the firstname and lastname for that username/password combination: */
-		$q = "SELECT firstname, lastname FROM users WHERE username='$uname' AND password='$p'";
-		$r = @pg_query($dbc, $q); // Run the query.
+	/* Check if the form has been submitted: */
+	if (isset($_POST['sub'])) {
 		
-		/* Database: firstname, lastname, username, password, email */
-		if ($arr = pg_fetch_array($r)) {
+		$uname = $_POST['uname'];
+		$pwd = $_POST['pass'];
+
+		userInfo($uname, $pwd);
+		
+		/* Retrieve the firstname and lastname for that username/password combination: */
+		$q = "SELECT firstname, lastname FROM users WHERE username='$uname' AND password='$pwd'";
+		$r = @pg_query($dbc, $q); // Run the query.
+
+		$error = getSession($r, $uname);
+		
+		pg_close($dbc); // Close the database connection.
+
+	} // End of the main submit conditional.
+
+	/* Gets the users username and password and removes any unnecessary characters */
+	function userInfo($uname, $pass){
+		$u = stripslashes($uname);
+		$p = stripslashes($pass);
+		$user = pg_escape_string($dbc, trim($u));
+		$pwd = pg_escape_string($dbc, trim($p));
+		return [$user, $pwd];	
+	}
+
+	/* If the query executes correctly then a session will be created for the user */
+	function getSession($r, $uname){
+	if ($arr = pg_fetch_array($r)) {
 			$_SESSION['user'] = $uname;
 			$_SESSION['fname'] = $arr[0];
 			$_SESSION['lname'] = $arr[1];
-			
 		}
 		else {
-			$error = 'The username and password entered do not match.';
-		}
-		
-	}		
-
-	pg_close($dbc); // Close the database connection.
-
-} // End of the main submit conditional.
-
+			$error = 'The username and password entered do not match!!.';
+			return $error;
+		}	
+	}
 ?>
-
 
 </header>
 <div class="login-page">
