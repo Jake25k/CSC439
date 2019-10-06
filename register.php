@@ -4,7 +4,7 @@ include('includes/header.html');
 
 // Procces the registration for new user
 
-$page_title = 'Register';
+$_SESSION['title'] = 'Register';
 
 // Check for form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
