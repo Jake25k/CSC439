@@ -17,7 +17,7 @@
 		userInfo($uname, $pwd);
 		
 		/* Retrieve the firstname and lastname for that username/password combination: */
-		$q = "SELECT firstname, lastname FROM users WHERE username='$uname' AND password='$pwd'";
+		$q = "SELECT firstname, lastname FROM users WHERE username='$uname' AND password=crypt('$pwd', password)";
 		$r = @pg_query($dbc, $q); // Run the query.
 
 		$error = getSession($r, $uname);
