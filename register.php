@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 include('includes/header.html');
 
 // Procces the registration for new user
