@@ -22,18 +22,18 @@
             aria-label="Toggle navigation">
             <i class="fas fa-align-right text-light"></i>
           </button>
-        <div class="search">
-          <form action="search.php" method="post">
-              <input type="text" name="term" placeholder= "Search..." value="<?php echo isset($_POST['term']) ? $_POST['term'] : '' ?>"/>
-              <input type="submit" value="Search" />
+          <div class="search">
+            <form action="search.php" method="post">
+                <input type="text" name="term" />
+                <input type="submit" value="Search" />
 
-              <select name="type">
-                <option <?php if ($_POST['type'] == '0') { ?>selected="true" <?php }; ?>value="0">Title</option>
-                <option <?php if ($_POST['type'] == '1') { ?>selected="true" <?php }; ?>value="1">Author</option>
-                <option <?php if ($_POST['type'] == '2') { ?>selected="true" <?php }; ?>value="2">ISBN</option>
-              </select>
-          </form>
-        </div>
+                <select name="type">
+                  <option value="0">Title</option>
+                  <option value="1">Author</option>
+                  <option value="2">ISBN</option>
+                </select>
+            </form>
+          </div>
           <div class="collapse navbar-collapse" id="navbarNav">
             <div class="mr-auto"></div>
             <ul class="navbar-nav">
