@@ -50,7 +50,7 @@ header a {
 
 .search {
     font-family: var(--Sniglet-font);
-    width: 250px;
+    width: 50%;
 }
 
 header .nav-item:last-child {
