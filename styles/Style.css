@@ -52,6 +52,9 @@ header a {
     font-family: var(--Sniglet-font);
     width: 250px;
     border-radius: 25px;
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
 }
 
 header .nav-item:last-child {
