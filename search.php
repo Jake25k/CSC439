@@ -65,9 +65,7 @@
         </button>
         <div class="search">
           <form action="search.php" method="post">
-              <div class="textbox">
               <input type="text" name="term" placeholder= "Search..." value="<?php echo isset($_POST['term']) ? $_POST['term'] : '' ?>"/>
-              </div>
               <input type="submit" value="Search" />
 
               <select name="type">

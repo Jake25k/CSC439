@@ -53,13 +53,6 @@ header a {
     width: 250px;
 }
 
-.textbox {
-    border-radius: 2px;
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
-}
-
 header .nav-item:last-child {
   padding-right: 10.5em;
 }
