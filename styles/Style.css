@@ -51,8 +51,11 @@ header a {
 .search {
     font-family: var(--Sniglet-font);
     width: 250px;
-    border-radius: 25px;
-    border-width: 5px;
+}
+
+.textbox {
+    border-radius: 2px;
+    border-width: 2px;
     border-color: black;
     border-style: solid;
 }
