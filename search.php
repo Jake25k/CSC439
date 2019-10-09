@@ -67,12 +67,6 @@
           <form action="search.php" method="post">
               <input type="text" name="term" placeholder= "Search..." value="<?php echo isset($_POST['term']) ? $_POST['term'] : '' ?>"/>
               <input type="submit" value="Search" />
-
-              <select name="type">
-                <option <?php if ($_POST['type'] == '0') { ?>selected="true" <?php }; ?>value="0">Title</option>
-                <option <?php if ($_POST['type'] == '1') { ?>selected="true" <?php }; ?>value="1">Author</option>
-                <option <?php if ($_POST['type'] == '2') { ?>selected="true" <?php }; ?>value="2">ISBN</option>
-              </select>
           </form>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -108,19 +102,10 @@ if (!$conn) {
 
 if (!empty($_POST['term'])) {
     $term = $_POST['term'];
-    $type = $_POST['type'];
     
     $escapeterm = pg_escape_string($term);
-
-    if ($type == "0") {
-        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%{$escapeterm}%')");
-    }
-    if ($type == "1") {
-        $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(author) LIKE UPPER('%{$escapeterm}%')");
-    }
-    if ($type == "2") {
-        $query = pg_query($conn, "SELECT * FROM books WHERE CAST(isbn AS text) LIKE '%{$escapeterm}%'");
-    }
+        
+    $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%{$escapeterm}%') OR UPPER(author) LIKE UPPER('%{$escapeterm}%') OR CAST(isbn AS text) LIKE UPPER('%{$escapeterm}%')");
 
     if (!$query) {
         echo "Sorry, we couldn't find that!";
