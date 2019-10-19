@@ -46,13 +46,12 @@
             </li>
 			<li class="nav-item">
 				<?php
-				if (isset($_SESSION['user']) && (basename($_SERVER['PHP_SELF']) != 'logout.php')) {
-					echo '<a class="nav-link" href="logout.php">LOGOUT</a>';
-				}
-				else {
-					echo '<a class="nav-link" href="login.php">LOGIN</a>';
-				}
-				?>
+				if (isset($_SESSION['user'])) { ?>
+					<a class="nav-link" href="logout.php">LOGOUT</a>
+				<?php } ?>
+				else { ?>
+					<a class="nav-link" href="login.php">LOGIN</a>
+				<?php } ?>
             </li>
           </ul>
         </div>
