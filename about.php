@@ -15,4 +15,4 @@
     </div>
 </header>
 
-<?php include('includes/footer.html');>
+<?php include('includes/footer.html'); ?>
