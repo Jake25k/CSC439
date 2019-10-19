@@ -1,1 +1,4 @@
-<?php include_once ("Index.html");  ?>
+<?php
+include('includes/header.php');
+include_once ("index.html");
+?>

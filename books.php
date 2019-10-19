@@ -78,7 +78,7 @@
           <div class="mr-auto"></div>
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="Index.html">HOME</a>
+              <a class="nav-link" href="Index.php">HOME</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="books.php">BOOK INVENTORY
@@ -86,7 +86,7 @@
 			  </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">ABOUT</a>
+              <a class="nav-link" href="about.php">ABOUT</a>
             </li>
 			<li class="nav-item">
 				<?php session_start();
