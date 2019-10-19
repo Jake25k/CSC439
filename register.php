@@ -1,7 +1,8 @@
 
 <?php
+$pageTitle = 'Register';
 session_start();
-include('includes/header.html');
+include('includes/header.php');
 
 // Procces the registration for new user
 
