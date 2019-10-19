@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,10 +56,10 @@
   <div class="panel panel-default">
 <?php
   /* Pretend we are logged in for demonstration. Delete/uncomment the next few lines when login works */
-  $username = "reed";
-  $firstname = "Reed";
-  $lastname = "Inderwiesche";
-  $recQuery = "select author,title,book_cover from books where starts_with(title,'T');";
+  $username = $_SESSION['user'];
+  $firstname = $_SESSION['fname'];
+  $lastname = $_SESSION['lname'];
+  $recQuery = "select book_id,author,title,book_cover from books where starts_with(title,'T');";
   $cartQuery = "select book_id,author,title,book_cover from books where (book_id > 10 AND book_id < 16) AND book_cover != 'nocover.png' OR author='Stephen Hawking' or author='Bjarne Stroustrup';";
 
   $conn = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
