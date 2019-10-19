@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include('includes/header.php');  $pageTitle = 'About us';?>
     <div class="container text-center">
       <div class="row">
         <div class="col-md-7 col-sm-12  text-white">
