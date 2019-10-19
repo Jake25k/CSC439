@@ -1,7 +1,8 @@
 
 <?php
 	session_start();
-	include('includes/header.html');
+	include('includes/header.php');
+  include('loginFunctions.php');
 
 	$_SESSION['title'] = 'Login';
 
@@ -10,45 +11,24 @@
 
 	/* Check if the form has been submitted: */
 	if (isset($_POST['sub'])) {
-		
+
 		$uname = $_POST['uname'];
 		$pwd = $_POST['pass'];
 
 		userInfo($uname, $pwd);
-		
+
 		/* Retrieve the firstname and lastname for that username/password combination: */
 		$q = "SELECT firstname, lastname FROM users WHERE username='$uname' AND password=crypt('$pwd', password)";
 		$r = @pg_query($dbc, $q); // Run the query.
 
 		$error = getSession($r, $uname);
-		
+
 		pg_close($dbc); // Close the database connection.
 
 	} // End of the main submit conditional.
 
-	/* Gets the users username and password and removes any unnecessary characters */
-	function userInfo($uname, $pass){
-		$u = stripslashes($uname);
-		$p = stripslashes($pass);
-		$user = pg_escape_string($dbc, trim($u));
-		$pwd = pg_escape_string($dbc, trim($p));
-		return [$user, $pwd];	
-	}
 
-	/* If the query executes correctly then a session will be created for the user */
-	function getSession($r, $uname){
-	if ($arr = pg_fetch_array($r)) {
-			$_SESSION['user'] = $uname;
-			$_SESSION['fname'] = $arr[0];
-			$_SESSION['lname'] = $arr[1];
-		}
-		else {
-			$error = 'The username and password entered do not match!!.';
-			return $error;
-		}	
-	}
 ?>
-
 </header>
 <div class="login-page">
 <div class="form">
@@ -69,5 +49,4 @@
 	</form>
 </div>
 </div>
-
 <?php include('includes/footer.html'); ?>

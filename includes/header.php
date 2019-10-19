@@ -28,33 +28,38 @@
           <form action="search.php" method="post">
               <input type="text" name="term" />
               <input type="submit" value="Search" />
+
+              <select name="type">
+                <option value="0">Title</option>
+                <option value="1">Author</option>
+                <option value="2">ISBN</option>
+              </select>
           </form>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mr-auto"></div>
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="Index.html">HOME
-                <span class="sr-only">(current)</span>
+              <a class="nav-link" href="index.php">HOME
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="books.php">BOOK INVENTORY</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">ABOUT </a>
+              <a class="nav-link" href="about.php">ABOUT </a>
             </li>
-			<li class="nav-item">
-				<?php
-				if (isset($_SESSION['user'])) { ?>
-					<a class="nav-link" href="logout.php">LOGOUT</a>
-				<?php } ?>
-				else { ?>
-					<a class="nav-link" href="login.php">LOGIN</a>
-				<?php } ?>
+            <li class="nav-item">
+      				<?php session_start();
+      				if (isset($_SESSION['user'])) {
+      					echo '<a class="nav-link" href="logout.php">LOGOUT</a>';
+      				}
+      				else {
+      					echo '<a class="nav-link" href="login.php">LOGIN</a>';
+      				}
+      				?>
             </li>
           </ul>
         </div>
       </nav>
     </div>
-  </header>
