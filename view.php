@@ -1,6 +1,7 @@
 
 
   <?php
+	$pageTitle = 'View Books';
 	include('includes/header.php');
   $id = $_GET['id']; //get the book id from the url
 
