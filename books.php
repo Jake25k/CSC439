@@ -89,7 +89,14 @@
               <a class="nav-link" href="about.html">ABOUT</a>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" href="login.php">LOGIN</a>
+				<?php session_start();
+				if (isset($_SESSION['user'])) {
+					echo '<a class="nav-link" href="logout.php">LOGOUT</a>';
+				}
+				else {
+					echo '<a class="nav-link" href="login.php">LOGIN</a>';
+				}
+				?>
             </li>
           </ul>
         </div>
