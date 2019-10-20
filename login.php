@@ -31,10 +31,9 @@
 </header>
 <div class="login-page">
 <div class="form">
-	<p style="color:red;"><b><?php echo $error;?></b></p>
-	<p style="color:green;paddingleft:50px;"><b><?php
-		if (isset($_SESSION['user'])){
-			echo "You are now logged in, ".$_SESSION['fname'];
+	<p style="color:red;"><b><?php
+		if (!(isset($_SESSION['user']))){
+			echo $error;
 		}?></b></p>
 	<form class="login-page" action="login.php" method="post">
 		<ul style="list-style-type: none";>

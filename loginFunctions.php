@@ -14,6 +14,7 @@
 			$_SESSION['user'] = $uname;
 			$_SESSION['fname'] = $arr[0];
 			$_SESSION['lname'] = $arr[1];
+			header("Location:index.php");
 			return true;
 		}
 		else {
