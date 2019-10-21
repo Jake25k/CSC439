@@ -78,11 +78,43 @@
   $result = pg_query($conn, $recQuery);
   $rbooks = pg_fetch_all($result);
   displayRecommends($rbooks);
+  
+  if(!isset($_SESSION['user_cart'])){
+    $result = pg_query($conn, $cartQuery);
+    $_SESSION['user_cart'] = pg_fetch_all($result);
+  }
+  $cart = $_SESSION['user_cart'];
+  displayCart($cart);
+?>
+  <form method="post">
+      <input name="deletebook" type="submit" value="delete" />
+      <input name="addbook" type="submit" value="add" />
+  </form>
+<?php
+  /* add to cart */
+  if(isset($_POST['addbook'])){
+    $new_book = array('book_id' => 9999, 'book_cover' => "9788377858745-us.jpg");
+    
+    $cart[] = $new_book;
+    unset($_POST['addbook']);
+    /* set session variable to reflect adding to cart */
+    $_SESSION['user_cart'] = $cart;
+    /* refresh the page automatically */
+    echo "<meta http-equiv='refresh' content='0'>";
 
-  $result = pg_query($conn, $cartQuery);
-  $cbooks = pg_fetch_all($result);
-  displayCart($cbooks);
-
+  }
+  /* delete from cart */
+  if(isset($_POST['deletebook'])){
+    $len = count($cart);
+    if($len >= 1){
+      unset($cart[$len-1]);
+    }
+    unset($_POST['deletebook']);
+    $_SESSION['user_cart'] = $cart;
+    /* refresh the page  */
+    echo "<meta http-equiv='refresh' content='0'>";
+  }
+  
 ?>
   </div>
 </div>
