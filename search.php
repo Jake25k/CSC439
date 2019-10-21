@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include('includes/footer.html'); ?>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -150,4 +149,5 @@ else {
     crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
 </body>
+<?php include('includes/footer.html'); ?>
 </html>
