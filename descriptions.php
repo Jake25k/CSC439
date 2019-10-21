@@ -65,7 +65,7 @@
         </button>
         <div class="search">
           <form action="search.php" method="post">
-              <input type="text" name="term" />
+              <input type="text" name="term" placeholder="Search..."/>
               <input type="submit" value="Search" />
           </form>
         </div>
