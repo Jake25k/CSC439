@@ -149,5 +149,4 @@ else {
     crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
 </body>
-<?php include('includes/footer.html'); ?>
 </html>
