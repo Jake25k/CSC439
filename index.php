@@ -1,12 +1,11 @@
 <?php
 $pageTitle = 'Best Books';
 include('includes/header.php');
+include('functions.php');
 
 $db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
-$query = pg_query($db_con, "SELECT COUNT(*) from books");
-$query2 = pg_query($db_con, "SELECT COUNT(*) from users");
-$result = pg_fetch_row($query);
-$result2 = pg_fetch_row($query2);
+$numUsers = getNumUsers();
+$numBooks = getNumBooks();
 ?>
 
 
@@ -69,11 +68,11 @@ $result2 = pg_fetch_row($query2);
       <div class="container-fluid text-center">
         <div class="numbers d-flex flex-md-row flex-wrap justify-content-center">
           <div class="rect">
-            <h1><?php echo $result2[0]; ?></h1>
+            <h1><?php echo $numUsers; ?></h1>
             <p>Subscribed Patrons</p>
           </div>
           <div class="rect">
-            <h1><?php echo $result[0]; ?></h1>
+            <h1><?php echo $numBooks; ?></h1>
             <p>Books in our Library</p>
           </div>
         </div>
