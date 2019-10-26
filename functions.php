@@ -8,10 +8,11 @@ $db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 d
 
 /* Gets the users username and password and removes any unnecessary characters */
 	function userInfo($uname, $pass){
+		global $db_con;
 		$u = stripslashes($uname);
 		$p = stripslashes($pass);
-		$user = pg_escape_string($dbc, trim($u));
-		$pwd = pg_escape_string($dbc, trim($p));
+		$user = pg_escape_string($db_con, trim($u));
+		$pwd = pg_escape_string($db_con, trim($p));
 		return array($user, $pwd);
 	}
 
@@ -46,6 +47,15 @@ $db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 d
 	}
 
 	/* Functions for register.php */
-
+	function isRegistered($email){
+		global $db_con;
+		$q = "SELECT count(*) FROM users WHERE email='$email'";
+		$r = @pg_query($db_con, $q); // Run the query.
+		$result = pg_fetch_row($r);
+		if ($result[0] == 0){
+			return false;
+		}
+		return true;
+	}
 
 ?>

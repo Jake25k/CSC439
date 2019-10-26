@@ -3,6 +3,7 @@
 $pageTitle = 'Register';
 session_start();
 include('includes/header.php');
+include('functions.php');
 
 // Procces the registration for new user
 
@@ -10,13 +11,14 @@ $_SESSION['title'] = 'Register';
 
 // Check for form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-	
+
 	// Connect to database
-	$dbc = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
-	
+	$dbc = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i
+										user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
+
 	// Intialize an error array
 	$erros = [];
-	
+
 	// Check for first name:
 	if (empty($_POST['fname'])){
 		$errors[] = 'You forgot to enter your first name.';
@@ -24,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	else{
 		$fname = pg_escape_string($dbc, trim($_POST['fname']));
 	}
-	
+
 	// Check for last name:
 	if (empty($_POST['lname'])){
 		$errors[] = 'You forgot to enter your last name.';
@@ -32,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	else{
 		$lname = pg_escape_string($dbc, trim($_POST['lname']));
 	}
-	
+
 	// Check for email:
 	if (empty($_POST['email'])){
 		$errors[] = 'You forgot to enter your email.';
@@ -40,7 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	else{
 		$email = pg_escape_string($dbc, trim($_POST['email']));
 	}
-	
+
+	// Check if user is already registered
+	if (isRegistered($email)){
+		$errors[] = 'User already exists with this email!';
+	}
 	// Check for username:
 	if (empty($_POST['uname'])){
 		$errors[] = 'You forgot to enter your username.';
@@ -48,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	else{
 		$uname = pg_escape_string($dbc, trim($_POST['uname']));
 	}
-	
+
 	// Check for password and confirm the two passwords match:
 	if (strlen($_POST['pass']) >= 8 && preg_match('/[A-Z]/', $_POST['pass']) && preg_match('/[a-z]/', $_POST['pass']) && preg_match('/[0-9]/', $_POST['pass'])){
 		if ($_POST['pass'] != $_POST['pass2']){
@@ -59,17 +65,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		}
 	}
 	else{
-		$errors[] = 'Your password must be at least 8 characters and contain at least one digit, 
+		$errors[] = 'Your password must be at least 8 characters and contain at least one digit,
 					uppercase letter, and lowercase letter.';
 	}
-	
+
 	// No errors occured: Register the user to the database
 	if (empty($errors)){
 		// Make the query
 		$q = "insert into users (firstname, lastname, username, password, email)
 		values ('$fname', '$lname', '$uname', crypt('$pass', gen_salt('bf')), '$email')";
 		$r = pg_query($dbc, $q); // Run the query
-		
+
 		// If ran OK:
 		if ($r){
 			// Print thank you message
@@ -80,12 +86,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 			// Public message:
 			echo '<h1>System Error</h1>
-			<p class="error">You could not be registered due to a system error. We apologize for any inconvenience.</p>';		
+			<p class="error">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 	} // End of if ($r)
-	
+
 	// Close database connection
 	pg_close($dbc);
-	exit();	
+	exit();
 } // End of if ($errors)
 	// Report errors
 	else{
