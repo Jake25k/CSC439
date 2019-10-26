@@ -96,11 +96,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	// Report errors
 	else{
 		echo '<h1>Error!</h1>
-			<p class="error">The following error(s) occurred:<br>';
+			<p class="error"><b>The following error(s) occurred:</b><br>';
 			foreach ($errors as $msg) { // Print each error.
-				echo " - $msg<br>\n";
+				echo " - <b>$msg</b><br>\n";
 			}
-			echo '</p><p>Please try again.</p><p><br></p>';
+			echo '</p><p><b>Please try again.<b></p><p><br></p>';
 	}
 	pg_close($dbc);
 } // End of main submit
