@@ -26,9 +26,11 @@
         <div class="col-md-4">
           <?php echo "<img src='assets/covers/$row[4]' style='height: 360px;'/>";
                 echo "<br><h5>ISBN: $row[2]</h5>";
-                echo "<button class='btn btn-primary'>Add to Cart</button><br><br>";
+                echo "<form method='post'>";
+                echo "<button class='btn btn-primary' name='add_to_cart' value='1'>Add to Cart</button><br><br>";
                 echo "<button class='btn btn-success'>Add to Wish List</button><br><br>";
                 echo "<button class='btn btn-danger'>Add to Watch List</button><br><br>";
+                echo "</form>";
                 ?>
         </div>
         <div class = "col-md-6">
@@ -46,5 +48,13 @@
     </div>
   </div>
 </div>
+
+<?php
+  if(isset($_POST['add_to_cart'])){
+    $new_book = array('book_id' => $id, 'book_cover' => $row[4]);
+    echo "View <a href='userpage.php'>Cart</a>";
+    $_SESSION['user_cart'][] = $new_book;
+  }
+?>
 
 <?php include('includes/footer.html'); ?>
