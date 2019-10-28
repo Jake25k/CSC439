@@ -4,7 +4,9 @@ include('includes/header.php'); ?>
 
 <!DOCTYPE html>
 <html>
-<head>
+<body>
+<h1>Search Results</h1>
+<main>
 <style>
     header{
       padding-left: 5px;
@@ -42,10 +44,6 @@ include('includes/header.php'); ?>
 		border:2px solid black;
 	}
   </style>
-</head>
-<body>
-<h1>Search Results</h1>
-<main>
 <?php
 $conn = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
 if (!$conn) {
