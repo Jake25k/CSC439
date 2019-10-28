@@ -17,9 +17,9 @@ $numBooks = getNumBooks();
           <p>
             BestBooks.com offers the best books from some of the greatest authors around the world.
           </p>
-          <button class="btn btn-light px-5 py-2 primary-btn">
+          <a class="btn btn-light px-5 py-2 primary-btn" href="login.php">
             Subscribe today starting at $5.99
-          </button>
+          </a>
         </div>
         <div class="col-md-5 col-sm-12  h-25">
           <img src="./assets/header-img.png" alt="Book" />
