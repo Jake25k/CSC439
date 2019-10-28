@@ -62,7 +62,7 @@
           </button>
         <div class="search">
           <form action="search.php" method="post">
-              <input type="text" name="term" placeholder="Search..."/>
+              <input type="text" name="term" placeholder= "Search..." value="<?php echo isset($_POST['term']) ? $_POST['term'] : '' ?>"/>
               <input type="submit" value="Search" />
           </form>
         </div>
