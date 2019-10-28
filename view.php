@@ -32,7 +32,7 @@
                 ?>
         </div>
         <div class = "col-md-6">
-          <?php echo "<h3> Author: <a href='#'>$row[1]</a></h3><br>";
+          <?php echo "<h3> Author: <a href='author.php?author=$id'>$row[1]</a></h3><br>";
                 echo "<h2>Price: $row[6]</h2><br>";
                 echo "<h5> Description:<br>$row[5] </h5>";
                 ?>

@@ -47,6 +47,7 @@
       				<?php session_start();
       				if (isset($_SESSION['user'])) {
       					echo '<a class="nav-link" href="logout.php">LOGOUT</a>';
+                echo '<a class="nav-link" href="userpage.php">' . $_SESSION['user'] . '</a>';
       				}
       				else {
       					echo '<a class="nav-link" href="login.php">LOGIN</a>';

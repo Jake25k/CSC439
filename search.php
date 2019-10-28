@@ -99,9 +99,9 @@ if (!$conn) {
 
 if (!empty($_POST['term'])) {
     $term = $_POST['term'];
-    
+
     $escapeterm = pg_escape_string($term);
-        
+
     $query = pg_query($conn, "SELECT * FROM books WHERE UPPER(title) LIKE UPPER('%{$escapeterm}%') OR UPPER(author) LIKE UPPER('%{$escapeterm}%') OR CAST(isbn AS text) LIKE UPPER('%{$escapeterm}%')");
 
     if (!$query) {
