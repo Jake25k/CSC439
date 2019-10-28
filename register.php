@@ -1,7 +1,6 @@
-
 <?php
-$pageTitle = 'Register';
 session_start();
+$pageTitle = 'Register';
 include('includes/header.php');
 include('functions.php');
 

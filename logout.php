@@ -1,10 +1,8 @@
-<?php include('includes/header.php'); ?>
-
-</header>
-
 <?php
 
 session_start(); // Access the existing session.
+
+include('includes/header.php');
 
 if (session_destroy()) {
 	header("Location:index.php");

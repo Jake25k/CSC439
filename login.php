@@ -1,7 +1,6 @@
-
 <?php
-	$pageTitle = 'Login';
-	session_start();
+    session_start();
+    $pageTitle = 'Login';
 	include('includes/header.php');
     include('loginFunctions.php');
 

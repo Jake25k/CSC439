@@ -1,5 +1,3 @@
-
-
   <?php
 	$pageTitle = 'View Books';
 	include('includes/header.php');
