@@ -47,10 +47,10 @@
 	p{
 		text-align: center;
 		font-size: 150%;
-		
-		
+
+
 	}
-		
+
   </style>
 </head>
 
@@ -83,16 +83,15 @@
             <li class="nav-item">
               <a class="nav-link" href="about.php">ABOUT</a>
             </li>
-			<li class="nav-item">
 				<?php session_start();
-				if (isset($_SESSION['user'])) {
-					echo '<a class="nav-link" href="logout.php">LOGOUT</a>';
-				}
-				else {
-					echo '<a class="nav-link" href="login.php">LOGIN</a>';
-				}
+        if (isset($_SESSION['user'])) {
+          echo '<li class="nav-item"><a class="nav-link" href="logout.php">LOGOUT</a></li>';
+          echo '<li class="nav-item"><a class="nav-link" href="userpage.php">' . $_SESSION['user'] . '</a></li>';
+        }
+        else {
+          echo '<li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>';
+        }
 				?>
-            </li>
           </ul>
         </div>
       </nav>
@@ -109,7 +108,7 @@ if (isset($_GET['p']) && is_numeric($_GET['p'])){
 	$query = pg_query($db_con, "SELECT COUNT(*) from books");
 	$row = pg_fetch_array($query, NULL, PGSQL_NUM);
 	$records = $row[0];
-	
+
 	if ($records > $display){
 		$pages = ceil($records/$display);
 	}else{
@@ -130,9 +129,9 @@ if(!$query){
 	echo"<thead>";
 	echo "<tr class=\"column-head\"><th>Title</th><th>Author</th><th>ISBN</th></tr>";
 	echo "</thead>";
-	
+
     while($results = pg_fetch_array($query, NULL, PGSQL_ASSOC)){
-		
+
 		$i = $results['book_id'];
 		echo "<tr>";
 		echo "<td><a href='view.php?id=$i'>" . $results['title'] . "</a></td>";
@@ -143,13 +142,13 @@ if(!$query){
 	echo "</table>";
 }
 if($pages > 1){
-	
+
 	echo '<br /><p>';
-	
+
 	$current_page = ($start/$display) + 1;
-	
+
 	echo '<a href="books.php?s=0&p=' . $pages . '">First</a>		';
-	
+
 	if($current_page != 1){
 		echo '<a href="books.php?s=' . ($start - $display) . '&p=' . $pages . '"><<</a>		';
 	}
@@ -160,12 +159,12 @@ if($pages > 1){
 			echo $i . '		';
 		}
 	}
-	
+
 	if($current_page != $pages) {
 		echo '<a href="books.php?s=' . ($start + $display) . '&p=' . $pages . '">>></a>		';
 	}
-	
-	echo '<a href="books.php?s=' . (($pages - 1) * $display) . '&p=' . $pages . '">Last</a>'; 
+
+	echo '<a href="books.php?s=' . (($pages - 1) * $display) . '&p=' . $pages . '">Last</a>';
 	echo '</p>';
 }
 ?>

@@ -41,9 +41,15 @@
               <li class="nav-item">
                 <a class="nav-link" href="about.html">ABOUT</a>
               </li>
-  			<li class="nav-item">
-                <a class="nav-link" href="login.php">LOGIN</a>
-              </li>
+              <?php
+                if (isset($_SESSION['user'])) {
+                  echo '<li class="nav-item"><a class="nav-link" href="logout.php">LOGOUT</a></li>';
+                  echo '<li class="nav-item"><a class="nav-link" href="userpage.php">' . $_SESSION['user'] . '</a></li>';
+                }
+                else {
+                  echo '<li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>';
+                }
+              ?>
             </ul>
           </div>
         </nav>
@@ -75,7 +81,7 @@
   $result = pg_query($conn, $recQuery);
   $rbooks = pg_fetch_all($result);
   displayRecommends($rbooks);
-  
+
   if(!isset($_SESSION['user_cart'])){
     $result = pg_query($conn, $cartQuery);
     $_SESSION['user_cart'] = pg_fetch_all($result);
@@ -91,7 +97,7 @@
   /* add to cart */
   if(isset($_POST['addbook'])){
     $new_book = array('book_id' => 9999, 'book_cover' => "9788377858745-us.jpg");
-    
+
     $cart[] = $new_book;
     unset($_POST['addbook']);
     /* set session variable to reflect adding to cart */
@@ -111,7 +117,7 @@
     /* refresh the page  */
     echo "<meta http-equiv='refresh' content='0'>";
   }
-  
+
 ?>
   </div>
 </div>
