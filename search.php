@@ -69,9 +69,6 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <div class="mr-auto"></div>
             <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.php">HOME</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="books.php">BOOK INVENTORY
   				<span class="sr-only">(current)</span>
