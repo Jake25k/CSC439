@@ -62,6 +62,7 @@
   $username = $_SESSION['user'];
   $firstname = $_SESSION['fname'];
   $lastname = $_SESSION['lname'];
+  $created_at = $_SESSION['created_at'];
   $recQuery = "select book_id,author,title,book_cover from books where starts_with(title,'T');";
   $cartQuery = "select book_id,author,title,book_cover from books where (book_id > 10 AND book_id < 16) AND book_cover != 'nocover.png' OR author='Stephen Hawking' or author='Bjarne Stroustrup';";
 
@@ -71,12 +72,7 @@
     exit;
   }
 
-  /*
-  if(isLoggedIn() == false){
-    echo "You must log in first.";
-    exit;
-  }*/
-  displayInfo($username, $firstname, $lastname);
+  displayInfo($username, $firstname, $lastname, $created_at);
 
   $result = pg_query($conn, $recQuery);
   $rbooks = pg_fetch_all($result);

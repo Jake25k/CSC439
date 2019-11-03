@@ -22,6 +22,7 @@ $db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 d
 			$_SESSION['user'] = $uname;
 			$_SESSION['fname'] = $arr[0];
 			$_SESSION['lname'] = $arr[1];
+			$_SESSION['created_at'] = $arr[2];
 			header("Location:index.php");
 			return true;
 		}
