@@ -1,4 +1,4 @@
-<?php 
+<?php
 $pageTitle = 'About Us';
 include('includes/header.php');  $pageTitle = 'About us';?>
     <div class="container text-center">
@@ -17,4 +17,4 @@ include('includes/header.php');  $pageTitle = 'About us';?>
     </div>
 </header>
 
-<?php include('includes/footer.html'); ?>
+<?php include('includes/footer.php'); ?>

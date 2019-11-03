@@ -9,9 +9,9 @@
               <div class="input-group pr-5">
                 <input type="text" class="form-control bg-dark text-white" id="inlineFormInputGroupUsername2" placeholder="Email">
                 <div class="input-group-prepend">
-                  <div class="input-group-text">
+                  <a class="btn btn-light" href="login.php">
                     <i class="fas fa-arrow-right"></i>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
