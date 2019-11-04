@@ -86,7 +86,7 @@
 				<?php session_start();
         if (isset($_SESSION['user'])) {
           echo '<li class="nav-item"><a class="nav-link" href="logout.php">LOGOUT</a></li>';
-          echo '<li class="nav-item"><a class="nav-link" href="userpage.php">' . $_SESSION['user'] . '</a></li>';
+          echo '<li class="nav-item"><a class="nav-link" href="userpage.php">' . $_SESSION['user'] . '<br>Cart: '. count($_SESSION['user_cart']) .' Books</a></li>';
         }
         else {
           echo '<li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>';
