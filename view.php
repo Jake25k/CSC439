@@ -71,11 +71,7 @@
 	</div>
 </div>
 
-<?php
-  if(isset($_POST['add_to_cart'])){
-    $new_book = array('book_id' => $id, 'book_cover' => $row[4]);
-    $_SESSION['user_cart'][] = $new_book;
-  }  
+<?php 
   if(isset($_POST['rm_from_cart'])){
     if($in_cart){
       unset($_SESSION['user_cart'][$book_cart_index]);
@@ -87,7 +83,6 @@
       echo $book_cart_index;
     }
   }
-  echo "View <a href='userpage.php'>Cart</a>";
 ?>
 
 <?php include('includes/footer.html'); ?>
