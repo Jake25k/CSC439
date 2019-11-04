@@ -12,6 +12,17 @@
   else{
     $row = pg_fetch_row($result);
   }
+  //check if book is already in user's cart
+  $i = 0;
+  $in_cart = 0;
+  foreach($_SESSION['user_cart'] as $b){
+    if($b['book_id'] == $id){
+      $in_cart = 1;
+      $book_cart_index = $i;
+      break;
+    }
+    $i++;
+  }
   ?>
   </header>
 <div style="display: flex; justify-content: center;">
@@ -25,7 +36,11 @@
           <?php echo "<img src='assets/covers/$row[4]' style='height: 360px;'/>";
                 echo "<br><h5>ISBN: $row[2]</h5>";
                 echo "<form method='post'>";
-                echo "<button class='btn btn-primary' name='add_to_cart' value='1'>Add to Cart</button><br><br>";
+                if($in_cart){
+                  echo "<button class='btn btn-primary' name='rm_from_cart' value='1'>Remove from Cart</button><br><br>";
+                }else{
+                  echo "<button class='btn btn-primary' name='add_to_cart' value='1'>Add to Cart</button><br><br>";
+                }
                 echo "<button class='btn btn-success'>Add to Wish List</button><br><br>";
                 echo "<button class='btn btn-danger'>Add to Watch List</button><br><br>";
                 echo "</form>";
@@ -50,9 +65,22 @@
 <?php
   if(isset($_POST['add_to_cart'])){
     $new_book = array('book_id' => $id, 'book_cover' => $row[4]);
-    echo "View <a href='userpage.php'>Cart</a>";
     $_SESSION['user_cart'][] = $new_book;
+    echo "<meta http-equiv='refresh' content='0'>";
+  }  
+  if(isset($_POST['rm_from_cart'])){
+    if($in_cart){
+      unset($_SESSION['user_cart'][$book_cart_index]);
+      $cart = array_values($_SESSION['user_cart']);
+      $_SESSION['user_cart'] = $cart;
+      echo "Removed from cart";
+      echo "<meta http-equiv='refresh' content='0'>";
+    }else{
+      echo "Error: book not in cart! ";
+      echo $book_cart_index;
+    }
   }
+  echo "View <a href='userpage.php'>Cart</a>";
 ?>
 
 <?php include('includes/footer.html'); ?>
