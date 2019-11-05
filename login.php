@@ -22,6 +22,9 @@
 		$error = getSession($r, $uname);
 
 		pg_close($dbc); // Close the database connection.
+        
+        // Refresh page
+        echo "<meta http-equiv='refresh' content='0'>";
 
 	} // End of the main submit conditional.
 
