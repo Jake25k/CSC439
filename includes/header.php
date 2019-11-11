@@ -44,16 +44,25 @@
             <li class="nav-item">
               <a class="nav-link" href="about.php">ABOUT </a>
             </li>
-      				<?php session_start();
-      				if (isset($_SESSION['user'])) {
-      					echo '<li class="nav-item"><a class="nav-link" href="logout.php">LOGOUT</a></li>';
-                        echo '<li class="nav-item"><a class="nav-link" href="userpage.php"> <i class = "fas fa-shopping-cart fa-2x"></i></a></li>';
-						echo '<br>Cart: ' . count($_SESSION['user_cart']) . ' Books</li>';
-      				}
-      				else {
-      					echo '<li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>';
-      				}
-      				?>
+              <?php session_start();
+                if (isset($_SESSION['user'])) {
+                  echo '<li class="nav-item"><a class="nav-link" href="logout.php">LOGOUT</a></li>';
+                    
+                    if (!isset($_SESSION['user_cart'])) {
+                        $conn = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
+                    
+                        $cartQuery = "select book_id,author,title,book_cover from books where (book_id > 10 AND book_id < 16) AND book_cover != 'nocover.png' OR author='Stephen Hawking' or author='Bjarne Stroustrup';";
+                    
+                        $result = pg_query($conn, $cartQuery);
+                        $_SESSION['user_cart'] = pg_fetch_all($result);
+                    }
+                    
+                  echo '<li class="nav-item"><a class="nav-link" href="userpage.php">' . $_SESSION['user'] . '<br>Cart: '. count($_SESSION['user_cart']) .' Books</a></li>';
+                }
+                else {
+                  echo '<li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>';
+                }
+              ?>
           </ul>
         </div>
       </nav>
