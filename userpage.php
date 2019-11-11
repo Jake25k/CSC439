@@ -74,6 +74,8 @@
 
   displayInfo($username, $firstname, $lastname, $created_at);
 
+  echo "<br><a class='btn btn-primary' href='useredit.php'>Edit Profile</a><br><br>";
+
   $result = pg_query($conn, $recQuery);
   $rbooks = pg_fetch_all($result);
   displayRecommends($rbooks);
