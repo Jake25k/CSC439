@@ -1,6 +1,7 @@
 <?php
 	$pageTitle = 'View Books';
 	include('includes/header.php');
+  include('includes/userpage_functions.php');
 	$id = $_GET['id']; //get the book id from the url
 
 	$db_con = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
@@ -10,7 +11,7 @@
 		exit;
 	}
 	else{
-		$row = pg_fetch_row($result);
+		$row = pg_fetch_array($result);
 	}
   //check if book is already in user's cart
   $i = 0;
@@ -22,6 +23,17 @@
       break;
     }
     $i++;
+  }
+  
+  function viewRecommended($db_con, $querystr){
+    echo "You might like: ";
+    $rec_result = pg_query($db_con, $querystr);
+    if(!$rec_result){
+      echo "Error fetching recommendations!";
+    }else{
+      $recbooks = pg_fetch_all($rec_result);
+      displayRecommends($recbooks);
+    }
   }
 ?>
 </header>
@@ -64,7 +76,9 @@
 					<br>
 					<br>
 					<br>
-					<h4>Reccomended books: </h4>
+        <?php
+          viewRecommended($db_con, "SELECT title,book_id,book_cover from books WHERE category = '" . $row['category'] . "' and book_id != " . $id . " LIMIT 3;");
+        ?>
 				</div>
 			</div>
 		</div>
