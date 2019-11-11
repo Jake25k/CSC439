@@ -33,6 +33,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mr-auto"></div>
           <ul class="navbar-nav">
+			<?php session_start();
+				if(isset($_SESSION['user'])){
+					echo '<li class="nav-item"><a class="nav-link" href="userpage.php">' . $_SESSION['user'] . '</a></li>';
+				}
+			?>
             <li class="nav-item">
               <a class="nav-link" href="books.php">BOOK INVENTORY</a>
             </li>
