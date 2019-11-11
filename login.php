@@ -1,4 +1,5 @@
 <?php
+    // Session creation
     session_start();
     $pageTitle = 'Login';
 	include('includes/header.php');
