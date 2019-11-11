@@ -57,7 +57,8 @@
                         $_SESSION['user_cart'] = pg_fetch_all($result);
                     }
                     
-                  echo '<li class="nav-item"><a class="nav-link" href="userpage.php">' . $_SESSION['user'] . '<br>Cart: '. count($_SESSION['user_cart']) .' Books</a></li>';
+                  echo '<li class="nav-item"><a class="nav-link" href="userpage.php"> <i class = "fas fa-shopping-cart fa-2x"></i></a></li>';
+						echo '<br>Cart: ' . count($_SESSION['user_cart']) . ' Books</li>';
                 }
                 else {
                   echo '<li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>';
