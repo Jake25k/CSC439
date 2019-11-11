@@ -33,6 +33,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mr-auto"></div>
           <ul class="navbar-nav">
+			<?php session_start();
+				if(isset($_SESSION['user'])){
+					echo '<li class="nav-item"><a class="nav-link" href="userpage.php">' . $_SESSION['user'] . '</a></li>';
+				}
+			?>
             <li class="nav-item">
               <a class="nav-link" href="books.php">BOOK INVENTORY</a>
             </li>
@@ -42,7 +47,8 @@
       				<?php session_start();
       				if (isset($_SESSION['user'])) {
       					echo '<li class="nav-item"><a class="nav-link" href="logout.php">LOGOUT</a></li>';
-                        echo '<li class="nav-item"><a class="nav-link" href="userpage.php">' . $_SESSION['user'] . '<br>Cart: '. count($_SESSION['user_cart']) .' Books</a></li>';
+                        echo '<li class="nav-item"><a class="nav-link" href="userpage.php"> <i class = "fas fa-shopping-cart fa-2x"></i></a></li>';
+						echo '<br>Cart: ' . count($_SESSION['user_cart']) . ' Books</li>';
       				}
       				else {
       					echo '<li class="nav-item"><a class="nav-link" href="login.php">LOGIN</a></li>';
