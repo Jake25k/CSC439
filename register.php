@@ -74,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$q = "insert into users (firstname, lastname, username, password, email)
 		values ('$fname', '$lname', '$uname', crypt('$pass', gen_salt('bf')), '$email')";
 		$r = pg_query($dbc, $q); // Run the query
+        header("Location:login.php");
 
 		// If ran OK:
 		if ($r){
