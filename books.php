@@ -4,6 +4,10 @@
 ?>
 </header>
 <h1>All Books</h1>
+
+<?php
+	if ($_SESSION['user_status'] == 'admin')
+		echo "<div style='text-align: center;'><a class='btn btn-primary' href='addbook.php'>Add Book</a></div><br>"; ?>
 <main>
 <?php
 $display = 10;

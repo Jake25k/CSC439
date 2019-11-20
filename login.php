@@ -17,13 +17,13 @@
 		userInfo($uname, $pwd);
 
 		/* Retrieve the firstname and lastname for that username/password combination: */
-		$q = "SELECT firstname, lastname, created_at FROM users WHERE username='$uname' AND password=crypt('$pwd', password)";
+		$q = "SELECT firstname, lastname, created_at, user_status FROM users WHERE username='$uname' AND password=crypt('$pwd', password)";
 		$r = @pg_query($dbc, $q); // Run the query.
 
 		$error = getSession($r, $uname);
 
 		pg_close($dbc); // Close the database connection.
-        
+
         // Refresh page
         echo "<meta http-equiv='refresh' content='0'>";
 
@@ -130,7 +130,7 @@ input {
 .container {
 	background-color: #fff;
 	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25),
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
@@ -292,4 +292,3 @@ input {
 </div>
 
 <?php //include('includes/footer.php'); ?>
-
