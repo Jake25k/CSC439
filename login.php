@@ -1,5 +1,4 @@
 <?php
-    // Session creation
     session_start();
     $pageTitle = 'Login';
 	include('includes/header.php');
@@ -31,7 +30,9 @@
 
 
 ?>
+<link rel="stylesheet" href="styles/loginStyle.css" />
 </header>
+
 
 <script src="log.js"></script>
 
@@ -255,16 +256,19 @@ input {
 
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#" method="post">
+		<form action="register.php" method="post">
 			<h1>Create Account</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="text" name="fname" placeholder="Firstname" value="<?php if(isset($_POST['fname'])) echo $_POST['fname']; ?>" required>
+			<input type="text" name="lname" placeholder="Lastname" value="<?php if(isset($_POST['lname'])) echo $_POST['lname']; ?>" required>
+			<input type="email" name="email" placeholder="Email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" required>
+			<input type="text" name="uname" placeholder="Username" value="<?php if(isset($_POST['uname'])) echo $_POST['uname']; ?>" required>
+			<input type="password" name="pass" placeholder="Password" value="" required>
+			<input type="password" name="pass2" placeholder="Confirm Password" value="" required>
 			<button>Sign Up</button>
 		</form>
 	</div>
@@ -290,5 +294,19 @@ input {
 		</div>
 	</div>
 </div>
+
+<script>
+var signUpButton = document.getElementById('signUp');
+var signInButton = document.getElementById('signIn');
+var container = document.getElementById('container');
+
+signUpButton.addEventListener('click', function(){
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', function(){
+	container.classList.remove("right-panel-active");
+});
+</script>
 
 <?php //include('includes/footer.php'); ?>
