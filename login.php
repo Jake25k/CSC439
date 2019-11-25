@@ -258,11 +258,6 @@ input {
 	<div class="form-container sign-up-container">
 		<form action="register.php" method="post">
 			<h1>Create Account</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
 			<input type="text" name="fname" placeholder="Firstname" value="<?php if(isset($_POST['fname'])) echo $_POST['fname']; ?>" required>
 			<input type="text" name="lname" placeholder="Lastname" value="<?php if(isset($_POST['lname'])) echo $_POST['lname']; ?>" required>
 			<input type="email" name="email" placeholder="Email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" required>
