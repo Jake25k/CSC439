@@ -20,6 +20,32 @@
       return false;
     }
   }
+    
+    function test_cart_path_1() {
+        $_SESSION['user']) = "chris";
+  
+        $conn = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
+                    
+        $cartQuery = "select book_id,author,title,book_cover from books where (book_id > 10 AND book_id < 16) AND book_cover != 'nocover.png' OR author='Stephen Hawking' or author='Bjarne Stroustrup';";
+                    
+        $result = pg_query($conn, $cartQuery);
+        
+        $this->assertEquals(6, pg_fetch_all($result));
+    }
+    
+    function test_cart_path_2() {
+        $_SESSION['user']) = NULL;
+  
+        $conn = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
+                    
+        $cartQuery = "select book_id,author,title,book_cover from books where (book_id > 10 AND book_id < 16) AND book_cover != 'nocover.png' OR author='Stephen Hawking' or author='Bjarne Stroustrup';";
+                    
+        $result = pg_query($conn, $cartQuery);
+        
+        $this->assertEquals(0, pg_fetch_all($result));
+    }
+    
+    
   function test_displayRecommends(){
 
     $query = "select book_id,author,title,book_cover from books where starts_with(title,'T');";
