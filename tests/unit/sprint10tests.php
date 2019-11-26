@@ -3,21 +3,21 @@ namespace tests\unit;
 class UnitTests5 extends \PHPUnit\Framework\TestCase
 {
 //tests the function to add books to the database as an admin
-  function testAdminAdd(){
+  function testBookEdit(){
 
     //set test variables for function
+    $id = 1000000;
     $newTitle = "test";
     $newAuthor = "test";
     $newIsbn = 100;
-    $newDescription = "test";
 
     //run function with variables
-    addbook($newTitle, $newAuthor, $newIsbn, $newDescription);
+    editBook($id, $newTitle, $newAuthor, $newIsbn);
 
     //connect to database
     $dbc = pg_connect("host=ec2-54-235-100-99.compute-1.amazonaws.com port=5432 dbname=db8u3gdkjq4l6i
         user=oihnrigiktbsug password=03f8fa546db912cfc133c1faa898ef14cd26324691f4ba13ee09d89db73c9e8f");
-    $q = "SELECT title, author, isbn, description FROM books WHERE title='test';";
+    $q = "SELECT book_id, title, author, isbn FROM books WHERE book_id=$id;";
 
     //run query
     $r = @pg_query($dbc, $q);
@@ -39,7 +39,7 @@ class UnitTests5 extends \PHPUnit\Framework\TestCase
     }
 
     //clean up - delete the test book
-    $q2 = "delete from books where title='test';";
+    $q2 = "delete from books where book_id=$id;";
     $r2 = @pg_query($dbc, $q2);
   }
 }

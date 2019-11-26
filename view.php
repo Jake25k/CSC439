@@ -28,7 +28,7 @@
 <div style="display: flex; justify-content: center;">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<?php 
+			<?php
 				echo "<br><div style='text-align: center;'><h1> Title: $row[0]</h1></div>";
 				if(isset($_POST['add_to_cart'])){
 					$new_book = array('book_id' => $id, 'book_cover' => $row[4]);
@@ -40,7 +40,7 @@
 		<div class="panel-body">
 			<div class="row">
 				<div class="col-md-4">
-					<?php 
+					<?php
 						echo "<img src='assets/covers/$row[4]' style='height: 360px;'/>";
 						echo "<br><h5>ISBN: $row[2]</h5>";
 						echo "<form method='post'>";
@@ -51,11 +51,15 @@
             }
 						echo "<button class='btn btn-success'>Add to Wish List</button><br><br>";
 						echo "<button class='btn btn-danger'>Add to Watch List</button><br><br>";
+
 						echo "</form>";
+
+						if ($_SESSION['user_status'] == 'admin')
+							echo "<a class='btn btn-warning' href='editbook.php?id=$id'>Edit Book</a><br><br>";
 					?>
 				</div>
 				<div class = "col-md-6">
-					<?php 
+					<?php
 						echo "<h3> Author: <a href='author.php?author=$id'>$row[1]</a></h3><br>";
 						echo "<h2>Price: $row[6]</h2><br>";
 						echo "<h5> Description:<br>$row[5] </h5>";
@@ -71,7 +75,7 @@
 	</div>
 </div>
 
-<?php 
+<?php
   if(isset($_POST['rm_from_cart'])){
     if($in_cart){
       unset($_SESSION['user_cart'][$book_cart_index]);
