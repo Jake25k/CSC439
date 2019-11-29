@@ -46,6 +46,7 @@
 					$new_book = array('book_id' => $id, 'book_cover' => $row[4]);
 					echo "<h1 align=\"right\"><font size=\"5 px\"><a class=\"shopping_cart\" href='userpage.php' style=\"color:black\"> <i class=\"fas fa-shopping-cart fa-1x mx-2\" style=\"color:black\"></i>CART</a></font></h1>";
 					$_SESSION['user_cart'][] = $new_book;
+          echo "<meta http-equiv='refresh' content='0'>";
 				}
 			?>
 		</div>
@@ -92,6 +93,7 @@
       $cart = array_values($_SESSION['user_cart']);
       $_SESSION['user_cart'] = $cart;
       echo "Removed from cart";
+      echo "<meta http-equiv='refresh' content='0'>";
     }else{
       echo "Error: book not in cart! ";
       echo $book_cart_index;
